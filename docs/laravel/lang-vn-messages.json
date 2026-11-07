@@ -1,0 +1,617 @@
+{
+    "review": {
+        "index": {
+            "title": "Quản lý Đánh Giá",
+            "table": "Danh sách Đánh Giá"
+        },
+        "create": {
+            "title": "Thêm mới Đánh Giá"
+        }
+    },
+    "promotion": {
+        "index": {
+            "title": "Quản lý Khuyến mại",
+            "table": "Danh sách Khuyến mại"
+        },
+        "create": {
+            "title": "Thêm mới Khuyến mại",
+            "translate": "Tạo bản dịch {language} cho Khuyến mại"
+        }
+    },
+    "order": {
+        "index": {
+            "title": "Quản lý đơn hàng",
+            "table": "Danh sách đơn hàng"
+        },
+        "detail": {
+            "title": "Quản lý thông tin chi tiết đơn hàng"
+        }
+    },
+    "distribution": {
+        "index": {
+            "title": "Quản lý nhà phân phối",
+            "table": "Danh sách nhà phân phối"
+        },
+        "create": {
+            "title": "Thêm mới nhà phân phối"
+        },
+        "edit": {
+            "title": "Cập nhật nhà phân phối"
+        },
+        "delete": {
+            "title": "Xóa nhà phân phối"
+        }
+    },
+    "source": {
+        "index": {
+            "title": "Quản lý nguồn khách",
+            "table": "Danh sách nguồn khách"
+        },
+        "create": {
+            "title": "Thêm mới nguồn khách"
+        }
+    },
+    "widget": {
+        "index": {
+            "title": "Quản lý Widget",
+            "table": "Danh sách Widget"
+        },
+        "create": {
+            "title": "Thêm mới Widget",
+            "translate": "Tạo bản dịch {language} cho Widget"
+        }
+    },
+    "slide": {
+        "index": {
+            "title": "Quản lý Slide",
+            "table": "Danh sách Slide"
+        },
+        "create": {
+            "title": "Thêm mới Slide",
+            "children": "Cập nhật Slide con cho mục "
+        },
+        "translate": {
+            "title": "Tạo Bản Dịch {language} Cho"
+        },
+        "show": {
+            "title": "Danh sách Slide"
+        }
+    },
+    "menu": {
+        "index": {
+            "title": "Quản lý Menu",
+            "table": "Danh sách Menu"
+        },
+        "create": {
+            "title": "Thêm mới Menu",
+            "children": "Cập nhật menu con cho mục "
+        },
+        "translate": {
+            "title": "Tạo Bản Dịch {language} Cho"
+        },
+        "show": {
+            "title": "Danh sách Menu"
+        }
+    },
+    "system": {
+        "index": {
+            "title": "Cấu hình hệ thống"
+        },
+        "create": {
+            "title": "Cài đặt thông tin cấu hình hệ thống"
+        }
+    },
+    "introduce": {
+        "index": {
+            "title": "Cấu hình Công nghệ",
+            "table": "Nội dung trang Công nghệ"
+        },
+        "create": {
+            "title": "Cài đặt trang Công nghệ"
+        }
+    },
+    "galleryCatalogue": {
+        "index": {
+            "title": "Quản lý hình ảnh",
+            "table": "Danh sách nhóm hình ảnh"
+        },
+        "create": {
+            "title": "Thêm mới nhóm hình ảnh"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm hình ảnh"
+        },
+        "delete": {
+            "title": "Xóa nhóm hình ảnh"
+        }
+    },
+    "productCatalogue": {
+        "index": {
+            "title": "Quản lý nhóm sản phẩm",
+            "table": "Danh sách nhóm sản phẩm"
+        },
+        "create": {
+            "title": "Thêm mới nhóm sản phẩm"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm sản phẩm"
+        },
+        "delete": {
+            "title": "Xóa nhóm sản phẩm"
+        }
+    },
+    "attributeCatalogue": {
+        "index": {
+            "title": "Quản lý loại thuộc tính",
+            "table": "Danh sách loại thuộc tính"
+        },
+        "create": {
+            "title": "Thêm mới loại thuộc tính"
+        },
+        "edit": {
+            "title": "Cập nhật loại thuộc tính"
+        },
+        "delete": {
+            "title": "Xóa loại thuộc tính"
+        }
+    },
+    "attribute": {
+        "index": {
+            "title": "Quản lý thuộc tính",
+            "table": "Danh sách thuộc tính"
+        },
+        "create": {
+            "title": "Thêm mới thuộc tính"
+        },
+        "edit": {
+            "title": "Cập nhật thuộc tính"
+        },
+        "delete": {
+            "title": "Xóa thuộc tính"
+        }
+    },
+    "product": {
+        "index": {
+            "title": "Quản lý sản phẩm",
+            "table": "Danh sách sản phẩm"
+        },
+        "create": {
+            "title": "Thêm mới sản phẩm"
+        },
+        "edit": {
+            "title": "Cập nhật sản phẩm"
+        },
+        "delete": {
+            "title": "Xóa sản phẩm"
+        },
+        "information": "Thông tin chung",
+        "code": "Mã sản phẩm",
+        "made_in": "Xuất xứ",
+        "price": "Giá bán sản phẩm",
+        "stock": "Tồn kho"
+    },
+    "postCatalogue": {
+        "index": {
+            "title": "Quản lý bài viết",
+            "table": "Danh sách nhóm bài viết"
+        },
+        "create": {
+            "title": "Thêm mới nhóm bài viết"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm bài viết"
+        },
+        "delete": {
+            "title": "Xóa nhóm bài viết"
+        }
+    },
+    "post": {
+        "index": {
+            "title": "Quản lý bài viết",
+            "table": "Danh sách bài viết"
+        },
+        "create": {
+            "title": "Thêm mới bài viết"
+        },
+        "edit": {
+            "title": "Cập nhật bài viết"
+        },
+        "delete": {
+            "title": "Xóa bài viết"
+        }
+    },
+    "userCatalogue": {
+        "index": {
+            "title": "Quản lý nhóm thành viên",
+            "table": "Danh sách nhóm thành viên"
+        },
+        "create": {
+            "title": "Thêm mới nhóm thành viên"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm thành viên"
+        },
+        "delete": {
+            "title": "Xóa nhóm thành viên"
+        },
+        "permission": {
+            "title": "Cập nhật quyền"
+        }
+    },
+    "customerCatalogue": {
+        "index": {
+            "title": "Quản lý nhóm khách hàng",
+            "table": "Danh sách nhóm khách hàng"
+        },
+        "create": {
+            "title": "Thêm mới nhóm khách hàng"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm khách hàng"
+        },
+        "delete": {
+            "title": "Xóa nhóm khách hàng"
+        }
+    },
+    "customer": {
+        "index": {
+            "title": "Quản lý nhóm khách hàng",
+            "table": "Danh sách nhóm khách hàng"
+        },
+        "create": {
+            "title": "Thêm mới nhóm khách hàng"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm khách hàng"
+        },
+        "delete": {
+            "title": "Xóa nhóm khách hàng"
+        }
+    },
+    "permission": {
+        "index": {
+            "title": "Quản lý Quyền",
+            "table": "Danh sách Quyền"
+        },
+        "create": {
+            "title": "Thêm mới Quyền"
+        },
+        "edit": {
+            "title": "Cập nhật Quyền"
+        },
+        "delete": {
+            "title": "Xóa Quyền"
+        }
+    },
+    "language": {
+        "index": {
+            "title": "Quản lý Ngôn ngữ",
+            "table": "Danh sách Ngôn ngữ"
+        },
+        "create": {
+            "title": "Thêm mới Ngôn ngữ"
+        },
+        "edit": {
+            "title": "Cập nhật Ngôn ngữ"
+        },
+        "delete": {
+            "title": "Xóa Ngôn ngữ"
+        }
+    },
+    "agency": {
+        "index": {
+            "title": "Quản lý đại lý",
+            "table": "Danh sách đại lý"
+        },
+        "create": {
+            "title": "Thêm mới đại lý"
+        },
+        "edit": {
+            "title": "Cập nhật thông tin đại lý"
+        },
+        "delete": {
+            "title": "Xóa thông tin đại lý"
+        }
+    },
+    "construct": {
+        "index": {
+            "title": "Quản lý Công trình",
+            "table": "Danh sách Công trình"
+        },
+        "create": {
+            "title": "Thêm mới Công trình"
+        },
+        "edit": {
+            "title": "Cập nhật thông tin Công trình"
+        },
+        "delete": {
+            "title": "Xóa thông tin Công trình"
+        }
+    },
+    "voucher": {
+        "index": {
+            "title": "Quản lý Voucher",
+            "table": "Danh sách Voucher"
+        },
+        "create": {
+            "title": "Thêm mới Voucher"
+        },
+        "edit": {
+            "title": "Cập nhật Voucher"
+        },
+        "delete": {
+            "title": "Xóa Voucher"
+        }
+    },
+    "warranty": {
+        "index": {
+            "title": "Quản lý kích hoạt bảo hành"
+        }
+    },
+    "contact": {
+        "index": {
+            "title": "Quản lý Liên hệ",
+            "table": "Danh sách Liên hệ"
+        },
+        "delete": {
+            "title": "Xóa Liên hệ"
+        }
+    },
+    "lecturer": {
+        "index": {
+            "title": "Quản lý Giảng viên",
+            "table": "Danh sách Giảng viên"
+        },
+        "create": {
+            "title": "Thêm mới Giảng viên"
+        },
+        "edit": {
+            "title": "Cập nhật Giảng viên"
+        },
+        "delete": {
+            "title": "Xóa Giảng viên"
+        }
+    },
+    "school": {
+        "index": {
+            "title": "Quản lý Trường",
+            "table": "Danh sách Trường"
+        },
+        "create": {
+            "title": "Thêm mới Trường"
+        },
+        "edit": {
+            "title": "Cập nhật Trường"
+        },
+        "delete": {
+            "title": "Xóa Trường"
+        }
+    },
+    "train": "Chọn hệ đào tạo",
+    "policy": "Chọn chính sách",
+    "scholarship": {
+        "index": {
+            "title": "Quản lý học bổng",
+            "table": "Danh sách học bổng"
+        },
+        "create": {
+            "title": "Thêm mới học bổng"
+        },
+        "edit": {
+            "title": "Cập nhật học bổng"
+        },
+        "delete": {
+            "title": "Xóa học bổng"
+        }
+    },
+    "scholarshipCatalogue": {
+        "index": {
+            "title": "Quản lý khu vực",
+            "table": "Danh sách nhóm học bổng"
+        },
+        "create": {
+            "title": "Thêm mới nhóm học bổng"
+        },
+        "edit": {
+            "title": "Cập nhật nhóm học bổng"
+        },
+        "delete": {
+            "title": "Xóa nhóm học bổng"
+        }
+    },
+    "area": {
+        "index": {
+            "title": "Quản lý khu vực",
+            "table": "Danh sách khu vực"
+        },
+        "create": {
+            "title": "Thêm mới khu vực"
+        },
+        "edit": {
+            "title": "Cập nhật khu vực"
+        },
+        "delete": {
+            "title": "Xóa khu vực"
+        }
+    },
+    "city": {
+        "index": {
+            "title": "Quản lý thành phố",
+            "table": "Danh sách thành phố"
+        },
+        "create": {
+            "title": "Thêm mới thành phố"
+        },
+        "edit": {
+            "title": "Cập nhật thành phố"
+        },
+        "delete": {
+            "title": "Xóa thành phố"
+        }
+    },
+    "schoolCatalogue": {
+        "index": {
+            "title": "Quản lý loại hình trường",
+            "table": "Danh sách loại hình trường"
+        },
+        "create": {
+            "title": "Thêm mới loại hình trường"
+        },
+        "edit": {
+            "title": "Cập nhật loại hình trường"
+        },
+        "delete": {
+            "title": "Xóa loại hình trường"
+        }
+    },
+    "project": {
+        "index": {
+            "title": "Quản lý dự án",
+            "table": "Danh sách dự án"
+        },
+        "create": {
+            "title": "Thêm mới dự án"
+        },
+        "edit": {
+            "title": "Cập nhật dự án"
+        },
+        "delete": {
+            "title": "Xóa dự án"
+        }
+    },
+    "parent": "Chọn danh mục cha",
+    "parentNotice": "Chọn Root nếu không có danh mục cha",
+    "subparent": "Chọn danh mục phụ (nếu có)",
+    "image": "Chọn ảnh đại diện",
+    "advange": "Cấu hình nâng cao",
+    "search": "Tìm Kiếm",
+    "searchInput": "Nhập Từ khóa bạn muốn tìm kiếm...",
+    "perpage": "bản ghi",
+    "title": "Tiêu đề",
+    "description": "Mô tả ngắn",
+    "content": "Nội dung",
+    "upload": "Upload nhiều hình ảnh",
+    "seo": "Cấu hình seo",
+    "seoTitle": "Bạn chưa có tiêu đề SEO",
+    "seoCanonical": "https://duong-dan-cua-ban.html",
+    "seoDescription": "Bạn chưa có tiêu đề SEO",
+    "seoMetaTitle": "Tiêu đề SEO",
+    "seoMetaKeyword": "Từ khóa SEO",
+    "seoMetaDescription": "Mô tả SEO",
+    "canonical": "Đường dẫn",
+    "character": "Ký tự",
+    "tableStatus": "Tình Trạng",
+    "tableAction": "Thao tác",
+    "tableName": "Tiêu đề",
+    "tableOrder": "Sắp xếp",
+    "tableGroup": "Nhóm hiển thị:",
+    "deleteButton": "Xóa dữ liệu",
+    "tableHeading": "Thông tin chung",
+    "save": "Lưu lại",
+    "publish": [
+        "Chọn tình trạng",
+        "Không hoạt động",
+        "Hoạt động"
+    ],
+    "confirm": [
+        "Chọn tình trạng",
+        "Đã xác nhận",
+        "Chờ xác nhận"
+    ],
+    "follow": {
+        "1": "Follow",
+        "2": "Nofollow"
+    },
+    "recommend": {
+        "1": "Không đề xuất",
+        "2": "Đề xuất"
+    },
+    "post_type": {
+        "normal": "Cơ bản",
+        "post": "Nổi bật"
+    },
+    "status": [
+        "Chưa phê duyệt",
+        "Phê duyệt"
+    ],
+    "album": {
+        "heading": "Album Ảnh",
+        "image": "Chọn Hình",
+        "notice": "Sử dụng nút chọn hình hoặc click vào đây để thêm hình ảnh"
+    },
+    "status_menu": {
+        "1": "Hiện",
+        "2": "Ẩn"
+    },
+    "generalTitle": "Thông tin chung",
+    "generalDescription": "Bạn đang muốn xóa ngôn ngữ có tên là:\r\n    Lưu ý: Không thể khôi phục dữ liệu sau khi xóa. Hãy chắc chắn bạn muốn thực hiện chức năng này",
+    "scholar_catalogue": "Chọn nhóm học bổng",
+    "choose": "Vui lòng chọn",
+    "add_policy": "Thêm chính sách mới",
+    "delete_policy": "Xóa chính sách",
+    "add_scholar_policy": "Tạo chính sách học bổng",
+    "enter_main_name": "Nhập vào tên chính sách",
+    "enter_des_name": "Nhập vào tên chính sách",
+    "admission_catalogue": "Chọn loại tuyển sinh",
+    "scholar": "Chọn học bổng",
+    "distributionArea": {
+        "index": {
+            "title": "Quản lý khu vực phân phối",
+            "table": "Danh sách khu vực phân phối"
+        },
+        "create": {
+            "title": "Thêm mới khu vực phân phối"
+        },
+        "edit": {
+            "title": "Cập nhật khu vực phân phối"
+        },
+        "delete": {
+            "title": "Xóa khu vực phân phối"
+        }
+    },
+    "homeFeature": {
+        "index": {
+            "title": "Nội dung các khối trang chủ",
+            "table": "Danh sách mục trong các khối"
+        },
+        "create": {
+            "title": "Thêm mục vào khối trang chủ"
+        },
+        "edit": {
+            "title": "Sửa mục trong khối trang chủ"
+        },
+        "delete": {
+            "title": "Xóa mục khỏi khối trang chủ"
+        }
+    },
+    "dealer": {
+        "index": {
+            "title": "Quản lý điểm bán / đại lý",
+            "table": "Danh sách điểm bán"
+        },
+        "create": {
+            "title": "Thêm mới điểm bán"
+        },
+        "edit": {
+            "title": "Cập nhật điểm bán"
+        },
+        "delete": {
+            "title": "Xóa điểm bán"
+        }
+    },
+    "dealerRegistration": {
+        "index": {
+            "title": "Đơn đăng ký làm đại lý",
+            "table": "Danh sách đơn khách gửi"
+        },
+        "create": {
+            "title": "Đơn đăng ký làm đại lý"
+        },
+        "edit": {
+            "title": "Xử lý đơn đăng ký đại lý"
+        },
+        "delete": {
+            "title": "Xóa đơn đăng ký đại lý"
+        }
+    }
+}

@@ -1,0 +1,3170 @@
+// =============================================================================
+// WACO - trang chu
+//
+// Mau lay tu ban thiet ke Figma: navy dam cho cac khoi noi bat va chan trang,
+// xanh sang cho chu nhan manh va nut bam, nen xam rat nhat cho khoang nghi.
+// =============================================================================
+
+$waco-navy: #0b3a7a;
+$waco-navy-dark: #0a2f63;
+$waco-blue: #1877f2;
+$waco-blue-dark: #0f5fd0;
+$waco-ink: #16202c;
+$waco-text: #4a5568;
+$waco-muted: #8b95a3;
+$waco-line: #e3e8ef;
+$waco-bg: #f5f8fc;
+
+$waco-container: 1200px;
+
+// Diem ngat: thiet ke chi co ban desktop nen cac moc duoi day do tu quyet,
+// chon theo kich thuoc thiet bi pho bien chu khong phai theo file thiet ke.
+$bp-lg: 1024px;
+$bp-md: 768px;
+$bp-sm: 480px;
+
+@mixin waco-container {
+    width: 100%;
+    max-width: $waco-container;
+    margin: 0 auto;
+    padding-inline: 16px;
+}
+
+.waco {
+    color: $waco-ink;
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+
+    &__container {
+        @include waco-container;
+    }
+
+    // Tieu de khoi: chu in hoa, navy dam, can giua - lap lai o nhieu khoi.
+    &__heading {
+        margin: 0 0 8px;
+        color: $waco-navy;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.3;
+        text-align: center;
+        text-transform: uppercase;
+
+        @media (max-width: $bp-md) {
+            font-size: 22px;
+        }
+    }
+
+    &__subheading {
+        margin: 0 auto 40px;
+        max-width: 760px;
+        color: $waco-text;
+        text-align: center;
+
+        @media (max-width: $bp-md) {
+            margin-bottom: 28px;
+        }
+    }
+
+    &__section {
+        padding-block: 64px;
+
+        @media (max-width: $bp-md) {
+            padding-block: 40px;
+        }
+    }
+}
+
+// Nut bam ------------------------------------------------------------------
+// Nut chinh theo thiet ke la NAVY DAC, khong phai xanh sang. Mau xanh sang chi
+// dung cho chu nhan manh (vi du "WACO KOREA" trong tieu de hero).
+.waco-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 14px 24px;
+    border: 1px solid $waco-navy;
+    border-radius: 2px;
+    background: $waco-navy;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+        background: $waco-navy-dark;
+        border-color: $waco-navy-dark;
+        color: #fff;
+    }
+
+    svg {
+        flex-shrink: 0;
+    }
+
+    // Nut phu: nen trang, vien va chu navy - nut "Xem ho so nang luc".
+    &--outline {
+        background: #fff;
+        color: $waco-navy;
+
+        &:hover,
+        &:focus-visible {
+            background: $waco-navy;
+            border-color: $waco-navy;
+            color: #fff;
+        }
+    }
+
+    &--sm {
+        padding: 11px 18px;
+        gap: 18px;
+        font-size: 12px;
+    }
+}
+
+// Nut nam TRONG mot khoi nen navy (form dang ky dai ly, popup tu van).
+//
+// Nut mac dinh cung mang chinh mau navy nen dat len nen navy la chim han, chi
+// con nhin thay cai vien mo. Doi sang nen trang chu navy - dam bao tuong phan
+// va van dung bo mau thuong hieu.
+.waco-dealer-form .waco-btn,
+.waco-modal .waco-btn {
+    border-color: #fff;
+    background: #fff;
+    color: $waco-navy;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+    &:hover,
+    &:focus-visible {
+        border-color: $waco-blue;
+        background: $waco-blue;
+        color: #fff;
+    }
+
+    // Vien focus mac dinh cua trinh duyet cung chim tren nen navy.
+    &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+    }
+}
+
+// Dau trang ----------------------------------------------------------------
+.waco-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid $waco-line;
+
+    &__inner {
+        @include waco-container;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        min-height: 76px;
+    }
+
+    &__logo img {
+        display: block;
+        max-height: 52px;
+        width: auto;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-left: auto;
+
+        @media (max-width: $bp-lg) {
+            display: none;
+        }
+    }
+
+    &__cta {
+        @media (max-width: $bp-lg) {
+            display: none;
+        }
+    }
+
+    // Nut mo menu tren man hinh hep. An o desktop.
+    &__toggle {
+        display: none;
+        margin-left: auto;
+        padding: 8px;
+        border: 1px solid $waco-line;
+        border-radius: 4px;
+        background: #fff;
+        cursor: pointer;
+
+        @media (max-width: $bp-lg) {
+            display: inline-flex;
+        }
+    }
+}
+
+.waco-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        position: relative;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: $waco-ink;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:hover {
+            color: $waco-blue;
+        }
+    }
+
+    // Menu con: hien khi ro chuot hoac khi focus vao ben trong, de dung ban
+    // phim cung mo duoc.
+    &__sub {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 20;
+        min-width: 230px;
+        margin: 0;
+        padding: 8px 0;
+        list-style: none;
+        background: #fff;
+        border: 1px solid $waco-line;
+        border-radius: 4px;
+        box-shadow: 0 10px 30px rgba(11, 58, 122, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    // Cap 3 tro di tha sang BEN CANH chu khong xuong duoi: tha xuong thi no
+    // de len chinh menu cha, ro chuot sang muc khac la mat.
+    //
+    // left: 100% dat sat canh phai cua khung cha. Tru 4px cho hai khung hoi
+    // chong nhau - khong thi chuot di qua khe ho la menu con dong ngay.
+    &__sub--canh {
+        top: -9px;
+        left: calc(100% - 4px);
+        transform: translateX(6px);
+    }
+
+    // Khung cha phai la moc dinh vi cho khung con, khong thi cap 3 bam theo
+    // muc cap 1 o ngoai cung.
+    &__sub-item {
+        position: relative;
+    }
+
+    &__item:hover > &__sub,
+    &__item:focus-within > &__sub,
+    &__sub-item:hover > &__sub,
+    &__sub-item:focus-within > &__sub {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0);
+    }
+
+    &__sub-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 9px 18px;
+        color: $waco-text;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover {
+            background: $waco-bg;
+            color: $waco-blue;
+        }
+
+        svg {
+            flex-shrink: 0;
+            opacity: 0.55;
+        }
+    }
+
+    // Muc cuoi thanh menu: menu con tha sang trai de khong tran ra ngoai man
+    // hinh. Dung :nth-last-child(-n+2) - hai muc cuoi deu co nguy co tran.
+    &__item:nth-last-child(-n+2) &__sub--canh {
+        left: auto;
+        right: calc(100% - 4px);
+        transform: translateX(-6px);
+    }
+}
+
+// Menu cho man hinh hep: mo ra bang nut toggle.
+.waco-mobile-menu {
+    display: none;
+    border-top: 1px solid $waco-line;
+    background: #fff;
+
+    &.is-open {
+        display: block;
+    }
+
+    @media (min-width: #{$bp-lg + 1px}) {
+        display: none !important;
+    }
+
+    ul {
+        @include waco-container;
+        margin: 0;
+        padding-block: 8px;
+        list-style: none;
+    }
+
+    a {
+        display: block;
+        padding: 11px 0;
+        border-bottom: 1px solid $waco-line;
+        color: $waco-ink;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    li:last-child a {
+        border-bottom: 0;
+    }
+
+    // Cap cang sau thut cang sau. Chi co bon muc: sau cap 4 thi giu nguyen,
+    // thut them nua la chu bi don vao mot dai hep ben phai.
+    &__muc--cap2 a {
+        padding-left: 16px;
+        color: $waco-text;
+        font-weight: 500;
+        text-transform: none;
+    }
+
+    &__muc--cap3 a {
+        padding-left: 32px;
+        color: $waco-text;
+        font-weight: 500;
+        font-size: 12.5px;
+        text-transform: none;
+    }
+
+    &__muc--cap4 a {
+        padding-left: 48px;
+        color: $waco-muted;
+        font-weight: 500;
+        font-size: 12.5px;
+        text-transform: none;
+    }
+}
+
+// Hero ---------------------------------------------------------------------
+.waco-hero {
+    position: relative;
+    background: linear-gradient(180deg, #eaf3fd 0%, #f7fbff 100%);
+    // Dai cam ket de len day hero nen chua san khoang trong o duoi.
+    padding-bottom: 70px;
+
+    @media (max-width: $bp-lg) {
+        padding-bottom: 0;
+    }
+
+    // Anh hero trai HET chieu ngang va lam nen, chu de len tren - dung nhu thiet
+    // ke. Truoc day anh bi nhet vao mot cot ben phai nen vua nho vua lech.
+    &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+
+        // Anh lay tu module Slide nen luon co lop boc swiper, ke ca khi chi co
+        // mot anh (luc do swiper khong chay, hai lop nay chi can cao het khung).
+        .swiper-wrapper,
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+        }
+
+        // Lop chuyen sac tu trai sang de chu luon doc duoc tren anh.
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(90deg,
+                rgba(244, 249, 255, 0.97) 0%,
+                rgba(244, 249, 255, 0.92) 34%,
+                rgba(244, 249, 255, 0.35) 56%,
+                rgba(244, 249, 255, 0) 72%);
+        }
+
+        // Man hinh hep: anh THOI khong lam nen nua ma tro thanh mot khoi binh
+        // thuong nam tren cung, de nguyen ti le that.
+        //
+        // Truoc day anh van la nen tuyet doi va bi phu mot lop trang 90% cho
+        // chu de len tren doc duoc - ket qua la anh gan nhu bien mat, con bon
+        // icon thi choan het khung. Tach hai thu ra thi ca anh lan chu deu
+        // duoc nhin tron ven.
+        @media (max-width: $bp-lg) {
+            position: static;
+            height: auto;
+
+            .swiper-wrapper,
+            .swiper-slide {
+                height: auto;
+            }
+
+            img {
+                height: auto;
+                object-fit: contain;
+                object-position: center;
+            }
+
+            // Bo lop phu: khong con chu nam de len anh nen khong can lam mo.
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    &__inner {
+        @include waco-container;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 560px);
+        align-content: center;
+        min-height: 520px;
+        padding-block: 56px;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: minmax(0, 1fr);
+            min-height: 0;
+            padding-block: 0;
+            // Khung rieng dat ngay duoi anh slide.
+            margin-block: 18px 0;
+
+            > div {
+                padding: 22px 18px 24px;
+                border-radius: 14px;
+                background: #fff;
+                box-shadow: 0 10px 30px rgba(11, 58, 122, 0.1);
+            }
+        }
+    }
+
+    &__title {
+        margin: 0 0 14px;
+        color: $waco-navy;
+        font-size: 42px;
+        font-weight: 800;
+        line-height: 1.22;
+        text-transform: uppercase;
+
+        span {
+            color: $waco-blue;
+        }
+
+        @media (max-width: $bp-md) {
+            font-size: 28px;
+        }
+    }
+
+    &__description {
+        margin: 0 0 30px;
+        color: $waco-text;
+        font-size: 16px;
+    }
+
+    // 4 diem manh duoi hero.
+    &__usp {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 34px;
+
+        @media (max-width: $bp-md) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+.waco-usp {
+    // Icon cat tu chinh file thiet ke Figma (PNG da tach nen), khong ve lai.
+    // Kich thuoc bam theo ban thiet ke (~52px) chu khong thu nho lai.
+
+    // Man hinh hep: icon va chu dung CANH NHAU tren cung mot dong, khong xep
+    // chong nua. Khoi noi dung duoi slide nho ngang nhung thua doc, nen dat
+    // ngang lai vua do cao vua de doc hon.
+    @media (max-width: $bp-md) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__icon {
+        display: block;
+        margin-bottom: 10px;
+
+        img {
+            width: auto;
+            height: 52px;
+        }
+
+        // Trong khung chu hep cua ban mobile, icon 52px choan gan het o - thu
+        // lai cho can doi voi dong chu ben canh.
+        @media (max-width: $bp-md) {
+            // flex-shrink mac dinh la 1: khong khoa lai thi o hep icon se bi
+            // bop meo thay vi giu nguyen ti le.
+            flex: none;
+            margin-bottom: 0;
+
+            img {
+                height: 38px;
+            }
+        }
+    }
+
+    &__title {
+        color: $waco-ink;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.45;
+
+        @media (max-width: $bp-md) {
+            font-size: 12px;
+        }
+    }
+}
+
+// Dai cam ket: panel navy de len day hero ------------------------------------
+.waco-commit {
+    position: relative;
+    z-index: 2;
+    padding-block: 34px;
+
+    // Chi tren trang chu dai nay moi de len day hero. Cac trang con dung binh
+    // thuong trong luong noi dung nen khong keo len.
+    &--overlap {
+        padding-block: 0;
+        margin-top: -70px;
+
+        @media (max-width: $bp-lg) {
+            margin-top: 0;
+            padding-block: 34px;
+        }
+    }
+
+    &__inner {
+        @include waco-container;
+    }
+
+    &__panel {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 18px;
+        padding: 26px 20px;
+        border-radius: 4px;
+        background: $waco-navy;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+.waco-commit-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #fff;
+
+    // Man hinh hep: o chi con khoang 160px, de icon nam canh chu thi nhan bi ep
+    // xuong 3 dong so le. Xep icon len tren va can giua cho gon.
+    @media (max-width: $bp-sm) {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        display: flex;
+
+        img {
+            width: auto;
+            height: 52px;
+
+            @media (max-width: $bp-sm) {
+                height: 42px;
+            }
+        }
+    }
+
+    &__value {
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.1;
+        // Chu so cung be ngang: trong luc dem tu 0 len, so doi lien tuc (9 hep
+        // hon 0) khien ca dong chu ben duoi giat qua giat lai.
+        font-variant-numeric: tabular-nums;
+
+        @media (max-width: $bp-md) {
+            font-size: 21px;
+        }
+    }
+
+    &__label {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+}
+
+// Gioi thieu ---------------------------------------------------------------
+.waco-about {
+    &__inner {
+        @include waco-container;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 48px;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 28px;
+        }
+    }
+
+    &__label {
+        margin: 0 0 6px;
+        color: $waco-blue;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    &__heading {
+        margin: 0 0 18px;
+        color: $waco-navy;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.35;
+        text-transform: uppercase;
+
+        @media (max-width: $bp-md) {
+            font-size: 19px;
+        }
+    }
+
+    // Dong in dam ngay duoi tieu de: "VIET ANH - DON VI PHAN PHOI DOC QUYEN..."
+    &__lead {
+        margin: 0 0 16px;
+        color: $waco-ink;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    &__content p {
+        margin: 0 0 14px;
+        color: $waco-text;
+    }
+
+    &__badges {
+        display: grid;
+        // Giu nguyen 3 cot o MOI kich thuoc man hinh. Truoc day duoi 480px moi
+        // huy hieu chiem mot hang, ba cai keo khoi gioi thieu dai them mot doan
+        // dai ma khong them thong tin gi.
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 26px;
+
+        @media (max-width: $bp-md) {
+            gap: 10px;
+        }
+    }
+
+    &__media img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+    }
+}
+
+.waco-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    // Icon cat tu file thiet ke Figma (PNG da tach nen).
+    &__icon {
+        flex-shrink: 0;
+        display: flex;
+
+        img {
+            width: auto;
+            height: 34px;
+        }
+    }
+
+    &__title {
+        color: $waco-ink;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    // Huy hieu co gan bai viet thi la the <a>. Bo gach chan mac dinh cua lien
+    // ket va them dau hieu bam duoc, chu khong doi bo cuc - ba o van phai deu
+    // nhau du chi mot o co lien ket.
+    &--link {
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.15s ease;
+
+        .waco-badge__title {
+            transition: color 0.15s ease;
+        }
+
+        &:hover,
+        &:focus-visible {
+            transform: translateY(-2px);
+
+            .waco-badge__title {
+                color: $waco-blue;
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid $waco-blue;
+            outline-offset: 4px;
+            border-radius: 6px;
+        }
+    }
+
+    // Ba huy hieu nam mot hang tren man hinh hep: mot o chi rong khoang 110px,
+    // khong du cho icon dung canh chu nen xep icon LEN TREN chu.
+    @media (max-width: $bp-md) {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+
+        &__icon img {
+            height: 28px;
+        }
+
+        &__title {
+            font-size: 11px;
+            line-height: 1.35;
+        }
+    }
+}
+
+// He sinh thai san pham ----------------------------------------------------
+.waco-ecosystem {
+    background: $waco-bg;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 18px;
+
+        @media (max-width: 1100px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (max-width: $bp-md) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+    }
+}
+
+$waco-cat-colors: #2f7de1, #1fb6b0, #3aa655, #f0912f, #8b6ce0, #16b5c9;
+
+.waco-cat-card {
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}) .waco-cat-card__icon {
+            background: nth($waco-cat-colors, $i);
+        }
+    }
+
+    display: flex;
+    flex-direction: column;
+    padding: 18px 16px 0;
+    // Nhu the san pham: nen chuyen sac phu CA THE, khong vien.
+    background: linear-gradient(180deg, #f7f9ff 0%, #dee6f8 100%);
+    border-radius: 14px;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(11, 58, 122, 0.12);
+        color: inherit;
+    }
+
+    // Thiet ke dung o vuong bo goc, MOI danh muc mot mau khac nhau - khong
+    // phai cung mot mau xanh. Mau gan theo thu tu the bang :nth-child.
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 12px;
+        // Thiet ke dung HINH TRON chu khong phai o vuong bo goc.
+        border-radius: 50%;
+        background: $waco-blue;
+
+        img {
+            width: auto;
+            max-width: 22px;
+            height: 20px;
+        }
+    }
+
+    &__title {
+        margin: 0 0 8px;
+        color: $waco-navy;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.35;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 0 0 14px;
+        color: $waco-muted;
+        font-size: 12px;
+        line-height: 1.5;
+        // Cat o BIEN DONG chu khong cat giua tu: mo ta cua 6 danh muc dai ngan
+        // khac nhau, khoa 3 dong de sau the cao bang nhau ma chu van doc duoc
+        // tron tu.
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        // Giu cho san 3 dong de the nao mo ta ngan hon cung khong bi thut len.
+        min-height: 54px;
+    }
+
+    &__media {
+        margin-top: auto;
+        // Chieu cao CO DINH (khong dung aspect-ratio): anh san pham moi cai mot
+        // ti le, neu de khung theo ti le thi anh cao thap khac nhau va ca khoi
+        // bi keo dai. Co dinh chieu cao thi 6 the luon bang nhau.
+        height: 150px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        @media (max-width: $bp-md) {
+            height: 130px;
+        }
+    }
+
+    &__media img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+// Vi sao WACO --------------------------------------------------------------
+.waco-why {
+    background: $waco-navy;
+    color: #fff;
+
+    .waco__heading {
+        color: #fff;
+        margin-bottom: 44px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 24px;
+
+        @media (max-width: 1100px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+.waco-why-item {
+    text-align: center;
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 52px;
+        margin-bottom: 14px;
+
+        img {
+            width: auto;
+            max-height: 52px;
+        }
+    }
+
+    &__title {
+        margin: 0 0 8px;
+        // Khoi nay nen navy nen phai dat mau chu trang, khong de thua mau chu
+        // toi cua .waco - de nguyen thi chu gan nhu chim vao nen.
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.35;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+// Mang luoi phan phoi + form dang ky dai ly --------------------------------
+.waco-network {
+    &__inner {
+        @include waco-container;
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 36px;
+        align-items: start;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    &__label {
+        margin: 0 0 4px;
+        color: $waco-blue;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    &__heading {
+        margin: 0 0 24px;
+        color: $waco-navy;
+        font-size: 30px;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        @media (max-width: $bp-md) {
+            font-size: 22px;
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+        gap: 24px;
+        align-items: center;
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    &__map img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__cta {
+        margin-top: 24px;
+    }
+}
+
+.waco-stat {
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid $waco-line;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(11, 58, 122, 0.06);
+
+    &__value {
+        color: $waco-navy;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    &__label {
+        color: $waco-muted;
+        font-size: 12px;
+    }
+}
+
+.waco-dealer-form {
+    padding: 30px;
+    border-radius: 8px;
+    background: $waco-navy;
+    color: #fff;
+
+    @media (max-width: $bp-md) {
+        padding: 22px;
+    }
+
+    &__heading {
+        margin: 0 0 12px;
+        // Bat buoc khai bao mau: quy tac h1..h6 { color:#222 } cua UIkit co do
+        // uu tien cao hon mau ke thua tu .waco-dealer-form, de trong thi chu
+        // den chim vao nen navy.
+        color: #fff;
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 1.3;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 0 0 22px;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    &__group {
+        margin-bottom: 14px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 12px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font-size: 13px;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        &:focus {
+            outline: 2px solid $waco-blue;
+            outline-offset: 1px;
+        }
+    }
+
+    &__alert {
+        margin-bottom: 16px;
+        padding: 10px 12px;
+        border-radius: 4px;
+        font-size: 13px;
+
+        &--success {
+            background: rgba(46, 204, 113, 0.18);
+            color: #d7f7e4;
+        }
+
+        &--error {
+            background: rgba(231, 76, 60, 0.18);
+            color: #ffd9d4;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+    }
+}
+
+// Tin tuc ------------------------------------------------------------------
+.waco-news {
+    background: $waco-bg;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+}
+
+.waco-news-card {
+    display: block;
+    background: #fff;
+    border: 1px solid $waco-line;
+    border-radius: 8px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 12px 28px rgba(11, 58, 122, 0.12);
+        color: inherit;
+    }
+
+    &__media {
+        aspect-ratio: 16 / 10;
+        background: $waco-bg;
+    }
+
+    &__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__body {
+        padding: 14px 16px 18px;
+    }
+
+    &__date {
+        margin-bottom: 6px;
+        color: $waco-muted;
+        font-size: 11px;
+    }
+
+    &__title {
+        margin: 0 0 8px;
+        color: $waco-ink;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 0;
+        color: $waco-text;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+}
+
+// Chan trang ---------------------------------------------------------------
+.waco-footer {
+    background: $waco-navy;
+    color: rgba(255, 255, 255, 0.8);
+
+    &__inner {
+        @include waco-container;
+        display: grid;
+        grid-template-columns: 1.4fr repeat(3, 1fr) 1.3fr;
+        gap: 32px;
+        padding-block: 48px;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    &__logo {
+        margin-bottom: 14px;
+
+        img {
+            max-height: 56px;
+            width: auto;
+        }
+    }
+
+    &__description {
+        margin: 0 0 18px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    &__social {
+        display: flex;
+        gap: 12px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            color: #fff;
+            opacity: 0.85;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__title {
+        margin: 0 0 14px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            margin-bottom: 9px;
+        }
+
+        a {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 12px;
+            text-decoration: none;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    // Nhan cua tung dong lien he ("Hotline:", "Van phong giao dich:"). Sang
+    // hon phan noi dung mot chut de mat luot qua la biet dong nao la gi.
+    &__contact-label {
+        display: block;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+    }
+
+    &__contact {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        background: $waco-navy-dark;
+    }
+
+    &__copyright {
+        @include waco-container;
+        padding-block: 14px;
+        font-size: 11px;
+        text-align: center;
+    }
+}
+
+// Cum nut lien he noi -------------------------------------------------------
+// Truoc day khoi nay la cua website truoc: mau vang, dat ten .truc-online-support
+// va nhet CSS thang vao trong blade. Da ve lai theo mau thuong hieu WACO va dua
+// style ve day cho thong nhat.
+.waco-support {
+    position: fixed;
+    right: 18px;
+    bottom: 24px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (max-width: $bp-md) {
+        right: 10px;
+        bottom: 14px;
+        gap: 9px;
+    }
+
+    &__btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: $waco-navy;
+        color: #fff;
+        box-shadow: 0 6px 18px rgba(11, 58, 122, 0.35);
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            background: $waco-blue;
+            color: #fff;
+            transform: scale(1.08);
+        }
+
+        @media (max-width: $bp-md) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    // Vong song quanh nut goi dien cho de thay. Tat khi nguoi dung chon giam
+    // chuyen dong trong cai dat he dieu hanh.
+    &__btn--ring::before {
+        content: '';
+        position: absolute;
+        inset: -5px;
+        border: 2px solid rgba(24, 119, 242, 0.6);
+        border-radius: 50%;
+        animation: waco-support-ring 1.9s infinite ease-out;
+        pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &__btn--ring::before {
+            animation: none;
+        }
+    }
+
+    &__zalo {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
+    // Nhan chi hien khi ro chuot, tren man hinh cam tay thi bo han cho do vuong.
+    &__label {
+        position: absolute;
+        right: 56px;
+        top: 50%;
+        padding: 6px 11px;
+        border-radius: 4px;
+        background: $waco-ink;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-50%) translateX(8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        pointer-events: none;
+    }
+
+    &__btn:hover &__label,
+    &__btn:focus-visible &__label {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(0);
+    }
+
+    @media (max-width: $bp-lg) {
+        &__label {
+            display: none;
+        }
+    }
+}
+
+@keyframes waco-support-ring {
+    0% { transform: scale(1); opacity: 0.85; }
+    100% { transform: scale(1.65); opacity: 0; }
+}
+
+// Dai tieu de trang con ------------------------------------------------------
+// Nen navy voi mot lop song nuoc ve bang SVG nhung trong CSS - khong tai them
+// file anh chi de lam nen trang tri.
+.waco-banner {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(120% 140% at 80% 0%, rgba(24, 119, 242, 0.55) 0%, rgba(24, 119, 242, 0) 60%),
+        linear-gradient(160deg, $waco-navy 0%, $waco-navy-dark 100%);
+
+    // Hai lop song mo o day dai, lay cam hung tu ban thiet ke.
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        height: 70px;
+        background-repeat: repeat-x;
+        background-size: 1200px 70px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 70' preserveAspectRatio='none'%3E%3Cpath d='M0 42c120-26 240-26 360 0s240 26 360 0 240-26 360 0 120 12 120 12V70H0Z' fill='%23ffffff' fill-opacity='.06'/%3E%3Cpath d='M0 54c150-22 300-22 450 0s300 22 450 0 300-16 300-16V70H0Z' fill='%23ffffff' fill-opacity='.08'/%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+
+    &__inner {
+        @include waco-container;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 190px;
+        padding-block: 40px;
+
+        @media (max-width: $bp-md) {
+            min-height: 130px;
+            padding-block: 28px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        text-align: center;
+        text-transform: uppercase;
+
+        @media (max-width: $bp-md) {
+            font-size: 22px;
+        }
+    }
+}
+
+// Duong dan dieu huong -------------------------------------------------------
+.waco-crumbs {
+    border-bottom: 1px solid $waco-line;
+    background: #fff;
+
+    &__inner {
+        @include waco-container;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding-block: 12px;
+        color: $waco-muted;
+        font-size: 12px;
+    }
+
+    a {
+        color: $waco-text;
+        text-decoration: none;
+
+        &:hover {
+            color: $waco-blue;
+        }
+    }
+
+    &__sep {
+        color: $waco-line;
+    }
+}
+
+// Khoi chu gioi thieu don gian (trang He thong dai ly) -----------------------
+.waco-intro-text {
+    &__body {
+        max-width: 880px;
+        margin: 0 auto;
+        color: $waco-text;
+        text-align: center;
+
+        p {
+            margin: 0 0 14px;
+        }
+    }
+}
+
+// Bien the dao chieu cua khoi gioi thieu: anh ben trai, chu ben phai ---------
+// Tren man hinh hep van xep anh xuong duoi chu, giong ban khong dao chieu.
+.waco-about--reverse {
+    background: $waco-bg;
+
+    .waco-about__media {
+        order: -1;
+
+        @media (max-width: $bp-lg) {
+            order: 0;
+        }
+    }
+}
+
+// Thong bao ket qua gui form -------------------------------------------------
+.waco-alert {
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+
+    ul {
+        margin: 0;
+        padding-left: 18px;
+        list-style: disc;
+    }
+
+    &--success {
+        border: 1px solid #b6e2c4;
+        background: #eaf8ef;
+        color: #17643a;
+    }
+
+    &--error {
+        border: 1px solid #f2c2c2;
+        background: #fdeeee;
+        color: #a02020;
+    }
+}
+
+// Trang lien he --------------------------------------------------------------
+.waco-contact {
+    &__inner {
+        @include waco-container;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 36px;
+        align-items: start;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 26px;
+        }
+    }
+
+    &__panel {
+        padding: 28px;
+        border: 1px solid $waco-line;
+        border-radius: 8px;
+        background: #fff;
+
+        @media (max-width: $bp-md) {
+            padding: 20px;
+        }
+    }
+
+    &__heading {
+        margin: 0 0 18px;
+        color: $waco-navy;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        margin: 0 0 22px;
+        padding: 0;
+        list-style: none;
+        color: $waco-text;
+        font-size: 13px;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: $waco-blue;
+        }
+
+        a {
+            color: $waco-text;
+            text-decoration: none;
+
+            &:hover {
+                color: $waco-blue;
+            }
+        }
+    }
+
+    // Ban do co chieu cao bang cot ben canh tren man hinh rong, tren man hinh
+    // hep thi lay chieu cao co dinh cho khoi khong bi det.
+    &__map {
+        overflow: hidden;
+        border: 1px solid $waco-line;
+        border-radius: 8px;
+        background: $waco-bg;
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 520px;
+            border: 0;
+
+            @media (max-width: $bp-lg) {
+                height: 320px;
+            }
+        }
+    }
+}
+
+.waco-contact-form {
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+
+        @media (max-width: $bp-sm) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    &__group {
+        margin-bottom: 14px;
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: $waco-text;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1px solid $waco-line;
+            border-radius: 4px;
+            background: #fff;
+            color: $waco-ink;
+            font-family: inherit;
+            font-size: 13px;
+
+            &:focus {
+                outline: none;
+                border-color: $waco-blue;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+}
+
+// Danh sach bai viet ---------------------------------------------------------
+.waco-news__grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    @media (max-width: $bp-lg) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: $bp-sm) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+// Bai noi bat dau trang danh sach.
+.waco-feature-post {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @media (max-width: $bp-lg) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        margin-bottom: 28px;
+    }
+
+    &__media {
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+        background: $waco-bg;
+        aspect-ratio: 16 / 10;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__date {
+        margin-bottom: 8px;
+        color: $waco-muted;
+        font-size: 12px;
+    }
+
+    &__title {
+        margin: 0 0 12px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.35;
+        text-transform: uppercase;
+
+        a {
+            color: $waco-navy;
+            text-decoration: none;
+
+            &:hover {
+                color: $waco-blue;
+            }
+        }
+
+        @media (max-width: $bp-md) {
+            font-size: 17px;
+        }
+    }
+
+    &__description {
+        margin: 0 0 18px;
+        color: $waco-text;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
+
+// Dai loc theo chuyen muc ----------------------------------------------------
+.waco-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid $waco-line;
+
+    &__item {
+        position: relative;
+        padding: 0 0 12px;
+        // O trang chi tiet san pham hai muc nay la the <button>, trinh duyet tu
+        // cho nen xam va vien - phai xoa di de chung chi la chu co gach chan.
+        border: 0;
+        background: none;
+        color: $waco-text;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+            color: $waco-blue;
+        }
+
+        &.is-active {
+            color: $waco-navy;
+
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: -1px;
+                left: 0;
+                height: 2px;
+                background: $waco-blue;
+            }
+        }
+    }
+}
+
+// Phan trang -----------------------------------------------------------------
+.waco-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 36px;
+
+    &__item,
+    &__nav {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        height: 34px;
+        padding-inline: 8px;
+        border: 1px solid $waco-line;
+        border-radius: 4px;
+        background: #fff;
+        color: $waco-text;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            border-color: $waco-blue;
+            color: $waco-blue;
+        }
+    }
+
+    &__item.is-active {
+        border-color: $waco-navy;
+        background: $waco-navy;
+        color: #fff;
+    }
+
+    &__nav.is-disabled {
+        color: $waco-line;
+        cursor: default;
+
+        &:hover {
+            border-color: $waco-line;
+            color: $waco-line;
+        }
+    }
+
+    &__gap {
+        padding-inline: 4px;
+        color: $waco-muted;
+    }
+}
+
+.waco-empty {
+    padding: 40px 0;
+    color: $waco-muted;
+    text-align: center;
+}
+
+// Trang chi tiet bai viet ----------------------------------------------------
+.waco-article {
+    &__inner {
+        @include waco-container;
+        max-width: 860px;
+    }
+
+    &__title {
+        margin: 0 0 12px;
+        color: $waco-navy;
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1.3;
+
+        @media (max-width: $bp-md) {
+            font-size: 21px;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-bottom: 20px;
+        color: $waco-muted;
+        font-size: 12px;
+    }
+
+    &__lead {
+        margin: 0 0 22px;
+        padding-left: 14px;
+        border-left: 3px solid $waco-blue;
+        color: $waco-text;
+        font-size: 15px;
+        font-style: italic;
+        line-height: 1.65;
+    }
+
+    &__cover {
+        margin-bottom: 24px;
+        overflow: hidden;
+        border-radius: 8px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // Noi dung do quan tri soan: khong biet truoc the nao se co, nen dat quy tac
+    // cho tat ca cac the thuong gap.
+    &__content {
+        color: $waco-text;
+        font-size: 15px;
+        line-height: 1.75;
+
+        h2, h3, h4 {
+            margin: 28px 0 12px;
+            color: $waco-navy;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        h2 { font-size: 20px; }
+        h3 { font-size: 17px; }
+        h4 { font-size: 15px; }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        ul, ol {
+            margin: 0 0 16px;
+            padding-left: 22px;
+        }
+
+        ul li { list-style: disc; }
+        ol li { list-style: decimal; }
+
+        li { margin-bottom: 6px; }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        a {
+            color: $waco-blue;
+        }
+
+        blockquote {
+            margin: 0 0 16px;
+            padding: 12px 18px;
+            border-left: 3px solid $waco-line;
+            background: $waco-bg;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 16px;
+            border-collapse: collapse;
+
+            th, td {
+                padding: 9px 12px;
+                border: 1px solid $waco-line;
+                text-align: left;
+            }
+
+            th {
+                background: $waco-bg;
+                color: $waco-navy;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+// Trang danh sach san pham ---------------------------------------------------
+.waco-shop {
+    &__inner {
+        @include waco-container;
+        display: grid;
+        grid-template-columns: 268px minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 22px;
+        }
+    }
+
+    &__head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 22px;
+    }
+
+    &__title {
+        margin: 0 0 6px;
+        color: $waco-navy;
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        @media (max-width: $bp-md) {
+            font-size: 18px;
+        }
+    }
+
+    &__description {
+        margin: 0;
+        max-width: 620px;
+        color: $waco-text;
+        font-size: 13px;
+    }
+
+    &__sort select {
+        padding: 9px 12px;
+        border: 1px solid $waco-line;
+        border-radius: 4px;
+        background: #fff;
+        color: $waco-text;
+        font-family: inherit;
+        font-size: 13px;
+    }
+}
+
+// Cot danh muc ben trai.
+.waco-catnav {
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 24px rgba(11, 58, 122, 0.08);
+    overflow: hidden;
+
+    &__heading {
+        margin: 0;
+        padding: 16px 18px 12px;
+        color: $waco-navy;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0 0 8px;
+        list-style: none;
+    }
+
+    &__link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 18px;
+        color: $waco-text;
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+
+        img {
+            // Icon danh muc la net TRANG tren nen trong suot, dat tren nen sang
+            // se khong thay -> doi thanh navy bang bo loc mau.
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(17%) sepia(63%)
+                    saturate(2035%) hue-rotate(201deg) brightness(95%) contrast(95%);
+        }
+
+        span {
+            flex: 1;
+        }
+
+        em {
+            color: $waco-muted;
+            font-size: 11px;
+            font-style: normal;
+        }
+
+        &:hover {
+            background: $waco-bg;
+            color: $waco-blue;
+        }
+
+        // Muc dang xem: nen sang hon va mot thanh xanh doc o canh phai, dung
+        // nhu thiet ke.
+        &.is-active {
+            background: $waco-bg;
+            color: $waco-navy;
+            font-weight: 700;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 6px;
+                right: 0;
+                bottom: 6px;
+                width: 3px;
+                border-radius: 2px 0 0 2px;
+                background: $waco-blue;
+            }
+        }
+
+        // Danh muc CHA cua muc dang xem: to dam nhung khong co nen va thanh
+        // xanh - de nguoi dung biet minh dang o nhanh nao ma khong nham la
+        // dang mo hai danh muc cung luc.
+        &.is-nhanh {
+            color: $waco-navy;
+            font-weight: 700;
+        }
+    }
+
+    // Danh muc con: thut vao va nho hon, de nhin la biet thuoc muc nao ben
+    // tren. Duong ke doc chay theo ca nhom con thay cho dau gach dau dong.
+    &__con {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__muc--cap2 > .waco-catnav__link {
+        padding-left: 34px;
+        font-size: 12.5px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 22px;
+            width: 1px;
+            background: $waco-line;
+        }
+    }
+
+    &__muc--cap3 > .waco-catnav__link {
+        padding-left: 50px;
+        color: $waco-muted;
+        font-size: 12.5px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 38px;
+            width: 1px;
+            background: $waco-line;
+        }
+    }
+}
+
+// O tu van duoi cot danh muc.
+.waco-advisor {
+    padding: 24px 22px;
+    border-radius: 14px;
+    background: $waco-navy;
+    color: #fff;
+
+    &__heading {
+        margin: 0 0 8px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    &__description {
+        margin: 0 0 16px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    // Ba dong loi ich kem dau tich - dau tich ve bang CSS, khong them file icon.
+    &__list {
+        margin: 0 0 18px;
+        padding: 0;
+        list-style: none;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 12px;
+
+        li {
+            position: relative;
+            margin-bottom: 9px;
+            padding-left: 22px;
+            line-height: 1.5;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 4px;
+                left: 1px;
+                width: 11px;
+                height: 6px;
+                border-left: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__cta {
+        display: flex;
+        width: 100%;
+        border-color: #fff;
+        background: #fff;
+        color: $waco-navy;
+
+        &:hover,
+        &:focus-visible {
+            border-color: $waco-blue;
+            background: $waco-blue;
+            color: #fff;
+        }
+    }
+}
+
+// Khoi "San pham lien quan" o trang chi tiet. Dung chung the voi trang danh
+// sach nen chi can khai bao lai cai luoi.
+.waco-related {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+
+        @media (max-width: 1100px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (max-width: $bp-md) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+    }
+}
+
+// Luoi san pham --------------------------------------------------------------
+.waco-product__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+
+    @media (max-width: 1100px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: $bp-md) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+.waco-product-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 14px;
+    // Thiet ke: NEN PHU CA THE, chuyen sac xanh rat nhat tu tren xuong duoi -
+    // khong phai the trang voi rieng o anh co nen xam.
+    background: linear-gradient(180deg, #f7f9ff 0%, #dee6f8 100%);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 30px rgba(11, 58, 122, 0.16);
+    }
+
+    // Anh nam trong chinh nen cua the. Chieu cao co dinh de cac the bang nhau
+    // du anh moi san pham mot ti le.
+    &__media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        padding: 20px 20px 6px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: $bp-md) {
+            height: 160px;
+            padding: 16px 16px 4px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 4px 15px 16px;
+
+        @media (max-width: $bp-md) {
+            padding: 4px 13px 14px;
+        }
+    }
+
+    &__title {
+        margin: 0 0 10px;
+        font-size: 19px;
+        font-weight: 800;
+        line-height: 1.25;
+
+        a {
+            color: $waco-navy;
+            text-decoration: none;
+
+            &:hover {
+                color: $waco-blue;
+            }
+        }
+
+        @media (max-width: $bp-md) {
+            font-size: 16px;
+        }
+    }
+
+    &__specs {
+        margin: 0 0 16px;
+        padding-left: 17px;
+        color: $waco-text;
+        font-size: 12.5px;
+        line-height: 1.75;
+
+        li {
+            list-style: disc;
+        }
+    }
+
+    // Hai nut canh nhau, chia deu chieu ngang.
+    &__actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: auto;
+
+        // Man hinh hep: luoi con 2 cot the nen moi nut chi rong khoang 65px,
+        // khong du cho chu "Xem chi tiet" -> xep hai nut chong len nhau.
+        @media (max-width: $bp-sm) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 6px;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 4px;
+        border: 1px solid rgba(11, 58, 122, 0.18);
+        border-radius: 4px;
+        background: #fff;
+        color: $waco-ink;
+        font-size: 11.5px;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        // Nhan hai nut deu ngan; ep mot dong cho hai nut luon cao bang nhau.
+        white-space: nowrap;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            border-color: $waco-navy;
+            color: $waco-navy;
+        }
+
+        &--primary {
+            border-color: $waco-navy;
+            background: $waco-navy;
+            color: #fff;
+
+            &:hover,
+            &:focus-visible {
+                border-color: $waco-blue;
+                background: $waco-blue;
+                color: #fff;
+            }
+        }
+    }
+}
+
+// Chi doc duoc bang trinh doc man hinh, khong hien tren giao dien.
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Trang chi tiet san pham ----------------------------------------------------
+.waco-detail {
+    &__inner {
+        @include waco-container;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
+
+        @media (max-width: $bp-lg) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 24px;
+        }
+    }
+
+    &__category {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: $waco-blue;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        margin: 0 0 6px;
+        color: $waco-navy;
+        font-size: 34px;
+        font-weight: 800;
+        line-height: 1.2;
+
+        @media (max-width: $bp-md) {
+            font-size: 25px;
+        }
+    }
+
+    &__subtitle {
+        margin: 0 0 14px;
+        color: $waco-ink;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    // Ma san pham nam DUOI ten san pham, la thong tin phu nen chu nho hon.
+    &__code {
+        margin: 0 0 16px;
+        color: $waco-muted;
+        font-size: 13px;
+
+        strong {
+            color: $waco-ink;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    &__description {
+        margin: 0 0 16px;
+        color: $waco-text;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    &__facts {
+        margin: 0 0 24px;
+        padding: 0;
+        list-style: none;
+        color: $waco-text;
+        font-size: 13px;
+
+        li {
+            position: relative;
+            margin-bottom: 8px;
+            padding-left: 22px;
+
+            // Dau tich ve bang CSS - mot ky tu, khong dang them mot file icon.
+            &::before {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 0;
+                width: 12px;
+                height: 7px;
+                border-left: 2px solid $waco-blue;
+                border-bottom: 2px solid $waco-blue;
+                transform: rotate(-45deg);
+            }
+        }
+
+        strong {
+            color: $waco-ink;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    &__note {
+        margin: 0;
+        color: $waco-muted;
+        font-size: 12px;
+
+        a {
+            color: $waco-blue;
+            font-weight: 700;
+            text-decoration: none;
+        }
+    }
+}
+
+// Thu vien anh trang chi tiet: dai anh nho CHAY DOC ben trai, khung lon ben
+// phai voi nen xanh nhat theo thiet ke (khong phai nen xam phang).
+.waco-gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 16px;
+
+    @media (max-width: $bp-md) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    &__main {
+        // Khung anh lon luon o cot thu hai. Phai chi ro vi tri vi dai anh nho
+        // ben canh duoc dat tuyet doi (xem ghi chu o __rail) nen khong con
+        // chiem cho trong luoi nua.
+        grid-column: 2;
+
+        @media (max-width: $bp-md) {
+            grid-column: auto;
+        }
+    }
+
+    // San pham chi co dung MOT anh va khong co video thi dai anh nho khong
+    // duoc in ra - luc do khung anh lon la con duy nhat va se roi vao cot
+    // 96px, nho xiu. Cho no trai het hai cot.
+    &__main:only-child {
+        grid-column: 1 / -1;
+    }
+
+    // Cot anh nho + hai nut len/xuong cua slider.
+    //
+    // Dat TUYET DOI, khong nam trong luong cua luoi. Ly do: khung anh lon gio
+    // la hinh vuong nen chieu cao cua no do BE NGANG quyet dinh. Neu dai anh
+    // nho cung nam trong luoi thi chieu cao hang lai do ca hai cung quyet
+    // dinh, ma Swiper doc lai can biet chieu cao de tinh so o - thanh vong
+    // luan quan, ket qua la dai anh phinh ra hon 12.000px.
+    //
+    // Dat tuyet doi thi chieu cao hang chi con do khung anh lon quyet dinh,
+    // dai anh nho cang theo cho vua.
+    &__rail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 96px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+
+        @media (max-width: $bp-md) {
+            position: static;
+            width: 100%;
+            order: 2;
+            flex-direction: row;
+        }
+    }
+
+    &__thumbs {
+        // Swiper doc: phai co chieu cao ro rang thi moi tinh duoc so o hien ra.
+        width: 96px;
+        // An het phan con lai cua cot sau khi tru hai nut len/xuong.
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+
+        // Va tung o cung phai co chieu cao, neu khong Swiper don het cac o vao
+        // mot cho va chi thay duoc o dau tien.
+        .swiper-slide {
+            height: 96px;
+        }
+
+        @media (max-width: $bp-md) {
+            width: 100%;
+            height: 96px;
+
+            .swiper-slide {
+                width: 96px;
+            }
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 24px;
+        border: 0;
+        background: none;
+        color: $waco-muted;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            color: $waco-blue;
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        // It anh den muc khong can cuon thi Swiper khoa nut lai - an han di cho
+        // gon thay vi de mot nut bam khong lam gi.
+        &.swiper-button-lock {
+            display: none;
+        }
+
+        // Tren man hinh hep dai chay ngang nen hai nut xoay sang trai/phai.
+        @media (max-width: $bp-md) {
+            width: 24px;
+            height: 96px;
+        }
+    }
+
+    &__thumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 96px;
+        height: 96px;
+        padding: 8px;
+        border: 1px solid $waco-line;
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        &.is-active,
+        &:hover {
+            border-color: $waco-blue;
+        }
+
+        @media (max-width: $bp-md) {
+            width: 100%;
+        }
+    }
+
+    // O video: vong tron co tam giac phat, ve bang CSS.
+    &__thumb--video {
+        background: $waco-bg;
+    }
+
+    &__play {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 2px solid $waco-navy;
+        border-radius: 50%;
+
+        &::after {
+            content: '';
+            margin-left: 3px;
+            border-style: solid;
+            border-width: 7px 0 7px 11px;
+            border-color: transparent transparent transparent $waco-navy;
+        }
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // Khung VUONG. Anh san pham moi cai mot ti le (may loc nuoc cao, nap
+        // bon cau ngang); khung vuong la khung duy nhat khong lam cai nao bi
+        // be ngang hay hut tren duoi.
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        padding: 24px;
+        border-radius: 14px;
+        // Nen xanh nhat theo thiet ke, khong phai o xam phang.
+        background:
+            radial-gradient(90% 70% at 30% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 60%),
+            linear-gradient(160deg, #eaf4ff 0%, #d5e9fb 100%);
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            // scale-down chu khong phai contain: contain se PHONG TO anh nho
+            // len cho day khung, lam vo net. scale-down chi thu nho khi can,
+            // anh nho hon khung thi giu nguyen kich thuoc goc.
+            object-fit: scale-down;
+        }
+
+        // Khi doi sang video thi bo dem de khung phim trai het o.
+        &.is-video {
+            padding: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}
+
+// Hai the "Thong tin chi tiet" / "Thong so ky thuat" ------------------------
+// Thiet ke de ca khoi nay tren nen TRANG, khong phai mot dai xam rieng.
+.waco-detail-tabs {
+    padding-bottom: 64px;
+
+    @media (max-width: $bp-md) {
+        padding-bottom: 40px;
+    }
+
+    &__heading {
+        margin: 24px 0 14px;
+        color: $waco-navy;
+        font-size: 20px;
+        font-weight: 700;
+
+        @media (max-width: $bp-md) {
+            font-size: 17px;
+        }
+    }
+
+    &__panel[hidden] {
+        display: none;
+    }
+}
+
+// Bang thong so ky thuat.
+.waco-spec {
+    width: 100%;
+    margin-top: 24px;
+    border-collapse: collapse;
+    font-size: 13px;
+
+    th,
+    td {
+        padding: 11px 16px;
+        border: 1px solid $waco-line;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        width: 34%;
+        background: $waco-bg;
+        color: $waco-navy;
+        font-weight: 600;
+    }
+
+    td {
+        color: $waco-text;
+    }
+
+    @media (max-width: $bp-sm) {
+        th {
+            width: 44%;
+        }
+    }
+}
+
+// Thu gon noi dung dai, mo ra bang nut "Xem them" -------------------------
+.waco-collapse {
+    position: relative;
+    max-height: 340px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    // Lop mo dan o day cho thay con noi dung ben duoi.
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 90px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 85%);
+        pointer-events: none;
+    }
+
+    &.is-open {
+        max-height: none;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    &__more {
+        display: flex;
+        justify-content: center;
+        margin-top: 22px;
+
+        // display:flex de cao hon thuoc tinh hidden nen phai an tay.
+        &[hidden] {
+            display: none;
+        }
+    }
+}
+
+// Popup de lai thong tin ---------------------------------------------------
+.waco-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(8, 26, 54, 0.62);
+    }
+
+    // Tone mau theo thuong hieu: nen navy, chu trang.
+    &__panel {
+        position: relative;
+        width: 100%;
+        max-width: 440px;
+        max-height: 92vh;
+        overflow-y: auto;
+        padding: 30px 28px 28px;
+        border-radius: 14px;
+        background: linear-gradient(170deg, $waco-navy 0%, $waco-navy-dark 100%);
+        color: #fff;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+
+        @media (max-width: $bp-sm) {
+            padding: 24px 20px 22px;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        padding: 4px 8px;
+        border: 0;
+        background: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    &__title {
+        margin: 0 0 8px;
+        color: #fff;
+        font-size: 21px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 0 0 14px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    &__product {
+        margin: 0 0 16px;
+        padding: 9px 12px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    &__alert {
+        margin-bottom: 14px;
+        padding: 11px 14px;
+        border-radius: 4px;
+        font-size: 13px;
+        line-height: 1.5;
+
+        &--success {
+            background: rgba(46, 204, 113, 0.18);
+            color: #d6ffe6;
+        }
+
+        &--error {
+            background: rgba(231, 76, 60, 0.2);
+            color: #ffdcd8;
+        }
+    }
+
+    &__group {
+        margin-bottom: 13px;
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.45);
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $waco-blue;
+                background: rgba(255, 255, 255, 0.14);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+
+    &__submit {
+        width: 100%;
+        margin-top: 4px;
+        justify-content: center;
+        gap: 12px;
+        border-color: $waco-blue;
+        background: $waco-blue;
+
+        &:hover,
+        &:focus-visible {
+            border-color: #fff;
+            background: #fff;
+            color: $waco-navy;
+        }
+    }
+}
+
+// --- Luoi anh album cua bai viet + lightbox ----------------------------------
+//
+// Ba anh mot hang tren may tinh, hai anh tren may tinh bang, mot anh tren dien
+// thoai.
+//
+// KHONG dat ten .waco-album: ten do da thuoc ve thu vien anh cua trang chi
+// tiet san pham (dai anh nho doc ben trai + khung lon ben phai). File nay nap
+// sau nen mot lop trung ten se de len het, lam khung anh san pham co lai.
+.waco-album {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 26px 0 8px;
+
+    @media (max-width: $bp-md) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    @media (max-width: $bp-sm) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    &__item {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        // Cat deu ve khung 4:3: anh album do quan tri tai len, moi tam mot ti
+        // le khac nhau thi hang anh so le rat xau.
+        aspect-ratio: 4 / 3;
+        background: $waco-bg;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.25s ease;
+        }
+
+        &:hover img,
+        &:focus-visible img {
+            transform: scale(1.04);
+        }
+
+        &:focus-visible {
+            outline: 2px solid $waco-blue;
+            outline-offset: 2px;
+        }
+    }
+}
+
+.waco-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    // The mang thuoc tinh `hidden`, nhung display: flex o tren manh hon quy tac
+    // mac dinh cua trinh duyet - phai noi ro, khong thi hop luon hien.
+    &[hidden] {
+        display: none;
+    }
+
+    &__nen {
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 18, 36, 0.88);
+    }
+
+    &__khung {
+        position: relative;
+        max-width: min(1100px, 100%);
+        max-height: 100%;
+        margin: 0;
+        text-align: center;
+
+        img {
+            display: block;
+            max-width: 100%;
+            // Tru cho dong so thu tu ben duoi, khong thi anh cao che mat no.
+            max-height: calc(100vh - 110px);
+            margin: 0 auto;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+        }
+    }
+
+    &__nut {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+        transition: background 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+            background: rgba(255, 255, 255, 0.28);
+        }
+
+        &[hidden] {
+            display: none;
+        }
+
+        &--dong {
+            top: 18px;
+            right: 18px;
+            font-size: 26px;
+        }
+
+        &--truoc { left: 18px; }
+        &--sau { right: 18px; }
+
+        &--truoc,
+        &--sau {
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 34px;
+
+            // Man hinh hep: hai nut chuyen xuong day, khong de tren canh anh
+            // nua - ngon tay bam se che mat anh.
+            @media (max-width: $bp-sm) {
+                top: auto;
+                bottom: 18px;
+                transform: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,222 @@
+/*
+ * Storefront: Tailwind v4. Bo cuc kieu san TMDT lon, mau rieng "Linen & Thread":
+ * xanh rêu dam (vai), chi do gach (nut chinh), vang mu tat (chi vang), nen vai lanh.
+ * Ten bien van la az-* de khong phai sua hang tram class; gia tri la cua bang mau "Linen & Thread".
+ * Chi nap trong layout (site).
+ */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --color-az-header: #1f3a33;
+  --color-az-nav: #2c4d44;
+  --color-az-nav-hover: #3b6155;
+  --color-az-search: #e9b04a;
+  --color-az-search-hover: #d99c33;
+  --color-az-cart: #c8553d;
+  --color-az-cart-hover: #b04530;
+  --color-az-cart-border: #b04530;
+  --color-az-buy: #1f3a33;
+  --color-az-buy-hover: #2c4d44;
+  --color-az-link: #2d6a5b;
+  --color-az-link-hover: #b04530;
+  --color-az-deal: #b3261e;
+  --color-az-star: #e0a526;
+  --color-az-bg: #f4efe6;
+  --color-az-text: #22201c;
+  --color-az-muted: #6b645a;
+  --color-az-border: #e2d9cb;
+  --color-az-success: #2f7a4f;
+  --color-az-orange: #c8553d;
+  --color-az-footer: #2c4d44;
+  --color-az-footer-top: #3b6155;
+  --color-az-footer-bottom: #172b26;
+  --color-az-cream: #fbf7f0;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-sm text-az-text antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid #2d6a5b;
+    outline-offset: 2px;
+  }
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@layer components {
+  .az-link {
+    @apply text-az-link hover:text-az-link-hover hover:underline;
+  }
+  .az-btn {
+    @apply inline-flex items-center justify-center gap-1 rounded-full border px-4 py-1.5 text-[13px] leading-5 font-medium text-az-text shadow-[0_1px_2px_0_rgba(60,45,30,0.12)] transition-colors disabled:opacity-60;
+  }
+  .az-btn-cart {
+    @apply border-az-cart-border bg-az-cart text-white hover:bg-az-cart-hover;
+  }
+  .az-btn-buy {
+    @apply border-az-buy bg-az-buy text-white hover:bg-az-buy-hover;
+  }
+  .az-btn-secondary {
+    @apply border-az-border bg-white hover:bg-[#f7fafa];
+  }
+  .az-btn-dark {
+    @apply border-az-nav bg-az-nav text-white hover:bg-az-nav-hover;
+  }
+  .az-input {
+    @apply block w-full rounded-[3px] border border-[#b9ae9e] bg-white px-2 py-1.5 text-[13px] shadow-[0_1px_0_rgba(0,0,0,0.05)_inset] outline-none focus:border-az-link focus:shadow-[0_0_0_3px_#d5e8e1];
+  }
+  .az-label {
+    @apply mb-1 block text-[13px] font-bold;
+  }
+  .az-card {
+    @apply rounded-lg border border-az-border bg-white;
+  }
+  .az-h1 {
+    @apply font-display text-[28px] leading-9 font-semibold;
+  }
+  .az-h2 {
+    @apply font-display text-[21px] leading-7 font-semibold;
+  }
+  /* Duong chi may (net dut) — dau hieu nghe theu, dung duoi tieu de/khung */
+  .stitch {
+    background-image: linear-gradient(to right, currentColor 55%, transparent 0);
+    background-size: 9px 2px;
+    background-repeat: repeat-x;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Noi dung HTML tu trinh soan thao (mo ta san pham, bai viet) */
+  .az-prose {
+    @apply text-sm leading-6;
+  }
+  .az-prose p {
+    @apply mb-3;
+  }
+  .az-prose h1,
+  .az-prose h2,
+  .az-prose h3,
+  .az-prose h4 {
+    @apply mt-5 mb-2 font-bold;
+  }
+  .az-prose h1 {
+    @apply text-2xl;
+  }
+  .az-prose h2 {
+    @apply text-xl;
+  }
+  .az-prose h3 {
+    @apply text-lg;
+  }
+  .az-prose ul {
+    @apply mb-3 list-disc pl-6;
+  }
+  .az-prose ol {
+    @apply mb-3 list-decimal pl-6;
+  }
+  .az-prose li {
+    @apply mb-1;
+  }
+  .az-prose a {
+    @apply text-az-link underline hover:text-az-link-hover;
+  }
+  .az-prose img {
+    @apply my-3 h-auto max-w-full rounded;
+  }
+  .az-prose table {
+    @apply mb-3 w-full border-collapse text-sm;
+  }
+  .az-prose td,
+  .az-prose th {
+    @apply border border-az-border px-3 py-2 text-left align-top;
+  }
+  .az-prose iframe {
+    @apply aspect-video h-auto w-full max-w-full;
+  }
+  .az-prose blockquote {
+    @apply mb-3 border-l-4 border-az-border pl-4 text-az-muted;
+  }
+
+  /* Bai viet News: chu lon de doc, tieu de Fraunces, trich dan kieu tap chi (them vao .az-prose) */
+  .az-prose-article {
+    @apply text-[17px] leading-[1.75] text-az-text;
+    overflow-wrap: anywhere;
+  }
+  .az-prose-article p {
+    @apply mb-5;
+  }
+  .az-prose-article > p:first-child {
+    @apply text-[19px] leading-[1.7];
+  }
+  .az-prose-article h2 {
+    @apply mt-10 mb-3 font-display text-[26px] leading-[1.25] font-semibold sm:text-[28px];
+  }
+  .az-prose-article h3 {
+    @apply mt-8 mb-2 font-display text-[21px] leading-[1.3] font-semibold;
+  }
+  .az-prose-article ul,
+  .az-prose-article ol {
+    @apply mb-5 pl-6;
+  }
+  .az-prose-article li {
+    @apply mb-2 pl-1;
+  }
+  .az-prose-article li::marker {
+    color: var(--color-az-cart);
+  }
+  .az-prose-article strong {
+    @apply font-semibold;
+  }
+  .az-prose-article blockquote {
+    @apply my-8 rounded-r-xl border-l-4 border-az-cart bg-az-cream py-4 pr-5 pl-5 font-display text-[21px] leading-[1.45] text-az-text italic;
+  }
+  .az-prose-article blockquote p {
+    @apply mb-2 last:mb-0;
+  }
+  .az-prose-article blockquote cite {
+    @apply block font-sans text-sm text-az-muted not-italic;
+  }
+  .az-prose-article figure {
+    @apply my-8;
+  }
+  .az-prose-article figure img,
+  .az-prose-article img {
+    @apply my-0 w-full rounded-xl;
+  }
+  .az-prose-article figcaption {
+    @apply mt-2 text-center text-[13px] leading-5 text-az-muted;
+  }
+  .az-prose-article hr {
+    @apply my-10 h-[2px] border-0 text-az-border;
+    background-image: linear-gradient(to right, currentColor 55%, transparent 0);
+    background-size: 9px 2px;
+    background-repeat: repeat-x;
+  }
+  .az-prose-article .sources {
+    @apply mt-10 border-t border-az-border pt-5 text-sm leading-6;
+  }
+  .az-prose-article .sources h2 {
+    @apply mt-0 mb-2 font-sans text-xs font-semibold tracking-[0.14em] text-az-muted uppercase;
+  }
+  .az-prose-article .sources ul {
+    @apply text-sm;
+  }
+  .az-prose-article .sources li {
+    @apply mb-1;
+  }
+}

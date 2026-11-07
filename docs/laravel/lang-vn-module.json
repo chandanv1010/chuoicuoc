@@ -1,0 +1,202 @@
+{
+    "model": {
+        "PostCatalogue": "Nhóm Bài Viết",
+        "Post": "Bài Viết",
+        "ProductCatalogue": "Nhóm Sản Phẩm",
+        "Product": "Sản Phẩm"
+    },
+    "type": {
+        "dropdown-menu": "Dropdown Menu",
+        "mega-menu": "Mega Menu"
+    },
+    "effect": {
+        "fade": "Fade",
+        "cube": "Cube",
+        "coverflow": "Coverflow",
+        "flip": "Flip",
+        "cards": "Cards",
+        "creative": "Creative"
+    },
+    "navigate": {
+        "hide": "Ẩn",
+        "dots": "Dấu chấm",
+        "thumbnails": "Ảnh Thumbnails"
+    },
+    "promotion": {
+        "order_amount_range": "Chiết khấu theo tổng giá trị đơn hàng",
+        "product_and_quantity": "Chiết khấu theo từng sản phẩm",
+        "buy_product_take_gift": "Mua sản phẩm - tặng sản phẩm"
+    },
+    "item": {
+        "Product": "Phiên bản sản phẩm",
+        "ProductCatalogue": "Loại sản phẩm"
+    },
+    "gender": [
+        {
+            "id": 1,
+            "name": "Nam"
+        },
+        {
+            "id": 2,
+            "name": "Nữ"
+        }
+    ],
+    "day": [
+        {
+            "id": 0,
+            "name": 1
+        },
+        {
+            "id": 1,
+            "name": 2
+        },
+        {
+            "id": 2,
+            "name": 3
+        },
+        {
+            "id": 3,
+            "name": 4
+        },
+        {
+            "id": 4,
+            "name": 5
+        },
+        {
+            "id": 5,
+            "name": 6
+        },
+        {
+            "id": 6,
+            "name": 7
+        },
+        {
+            "id": 7,
+            "name": 8
+        },
+        {
+            "id": 8,
+            "name": 9
+        },
+        {
+            "id": 9,
+            "name": 10
+        },
+        {
+            "id": 10,
+            "name": 11
+        },
+        {
+            "id": 11,
+            "name": 12
+        },
+        {
+            "id": 12,
+            "name": 13
+        },
+        {
+            "id": 13,
+            "name": 14
+        },
+        {
+            "id": 14,
+            "name": 15
+        },
+        {
+            "id": 15,
+            "name": 16
+        },
+        {
+            "id": 16,
+            "name": 17
+        },
+        {
+            "id": 17,
+            "name": 18
+        },
+        {
+            "id": 18,
+            "name": 19
+        },
+        {
+            "id": 19,
+            "name": 20
+        },
+        {
+            "id": 20,
+            "name": 21
+        },
+        {
+            "id": 21,
+            "name": 22
+        },
+        {
+            "id": 22,
+            "name": 23
+        },
+        {
+            "id": 23,
+            "name": 24
+        },
+        {
+            "id": 24,
+            "name": 25
+        },
+        {
+            "id": 25,
+            "name": 26
+        },
+        {
+            "id": 26,
+            "name": 27
+        },
+        {
+            "id": 27,
+            "name": 28
+        },
+        {
+            "id": 28,
+            "name": 29
+        },
+        {
+            "id": 29,
+            "name": 30
+        },
+        {
+            "id": 30,
+            "name": 31
+        }
+    ],
+    "applyStatus": [
+        {
+            "id": "staff_take_care_customer",
+            "name": "Nhân viên phụ trách"
+        },
+        {
+            "id": "customer_group",
+            "name": "Nhóm khách hàng"
+        },
+        {
+            "id": "customer_gender",
+            "name": "Giới tính"
+        },
+        {
+            "id": "customer_birthday",
+            "name": "Ngày sinh"
+        }
+    ],
+    "voucher": {
+        "TOTAL_ORDERS": "Voucher tổng giá trị đơn hàng",
+        "PRODUCT_VOUCHER": "Voucher sản phẩm",
+        "SHIPPING_ORDERS": "Voucher phí vận chuyển"
+    },
+    "item_voucher": {
+        "SPECIFIC_PRODUCTS": "Sản phẩm cụ thể",
+        "ALL_PRODUCTS": "Toàn bộ sản phẩm"
+    },
+    "buy_product_take_gift": {
+        "single_product": "Mua số lượng lớn 1 sản phẩm",
+        "multiple_product": "Mua nhiều sản phẩm khác nhau"
+    },
+    "product_model": "Product"
+}

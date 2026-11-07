@@ -1,0 +1,114 @@
+/* Giao dien admin: Tailwind v4 + theme shadcn/ui (thay INSPINIA). Chi nap trong layout (panel)/(auth). */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.985 0.002 247);
+  --foreground: oklch(0.21 0.02 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.02 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.02 265);
+  --primary: oklch(0.488 0.217 264);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.003 265);
+  --secondary-foreground: oklch(0.21 0.02 265);
+  --muted: oklch(0.967 0.003 265);
+  --muted-foreground: oklch(0.55 0.02 264);
+  --accent: oklch(0.955 0.01 264);
+  --accent-foreground: oklch(0.21 0.02 265);
+  --destructive: oklch(0.577 0.245 27.3);
+  --success: oklch(0.6 0.15 155);
+  --warning: oklch(0.75 0.15 75);
+  --border: oklch(0.92 0.006 264);
+  --input: oklch(0.9 0.008 264);
+  --ring: oklch(0.6 0.15 264);
+  --sidebar: oklch(0.21 0.03 265);
+  --sidebar-foreground: oklch(0.86 0.01 264);
+  --sidebar-muted: oklch(0.62 0.02 264);
+  --sidebar-accent: oklch(0.28 0.04 265);
+  --sidebar-primary: oklch(0.62 0.19 264);
+}
+
+@theme inline {
+  --font-sans: var(--font-admin), ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary: var(--sidebar-primary);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Noi dung TipTap trong o soan thao */
+/* Thanh cuon sidebar: manh, giu cho san (menu khong bi xo lech), thanh keo trong suot, chi hien khi re chuot vao */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s;
+}
+.sidebar-scroll:hover {
+  scrollbar-color: color-mix(in oklch, var(--sidebar-foreground) 35%, transparent) transparent;
+}
+
+.rich-content {
+  @apply leading-relaxed text-sm;
+}
+.rich-content p { @apply my-2; }
+.rich-content h1 { @apply mt-5 mb-2 text-2xl font-bold; }
+.rich-content h2 { @apply mt-5 mb-2 text-xl font-semibold; }
+.rich-content h3 { @apply mt-4 mb-2 text-lg font-semibold; }
+.rich-content ul { @apply my-2 list-disc pl-6; }
+.rich-content ol { @apply my-2 list-decimal pl-6; }
+.rich-content blockquote { @apply my-3 border-l-4 border-border pl-4 text-muted-foreground italic; }
+.rich-content a { @apply text-primary underline; }
+.rich-content img { @apply my-2 inline-block h-auto max-w-full rounded; }
+.rich-content img.ProseMirror-selectednode { @apply outline-2 outline-primary; }
+.rich-content figure { @apply my-3; }
+.rich-content figcaption { @apply text-center text-xs text-muted-foreground; }
+.rich-content table { @apply my-3 w-full border-collapse; }
+.rich-content td, .rich-content th { @apply border border-border p-2 align-top; }
+.rich-content th { @apply bg-muted font-semibold; }
+.rich-content hr { @apply my-4 border-border; }
+.rich-content iframe { @apply my-3 aspect-video h-auto w-full max-w-2xl rounded; }
+.rich-content .ProseMirror { @apply min-h-[inherit] outline-none; }
+.rich-content .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply pointer-events-none float-left h-0 text-muted-foreground;
+}

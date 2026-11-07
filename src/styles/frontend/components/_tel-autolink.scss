@@ -1,0 +1,49 @@
+// ============================================================
+// TEL AUTO-LINK GUARD
+// ------------------------------------------------------------
+// iOS Safari (và một số WebView Android, trình duyệt trong app
+// Zalo/Facebook) tự động nhận diện số điện thoại trong text thuần
+// rồi bọc nó thành <a href="tel:...">. Link sinh ra mang màu mặc
+// định của trình duyệt (đen/xanh) nên trên nền tối chữ bị chìm.
+//
+// Meta format-detection=telephone=no chặn được phần lớn trường
+// hợp, nhưng nhiều WebView bỏ qua meta này — nên ép luôn bằng CSS
+// để link tự sinh kế thừa đúng màu của phần tử cha.
+// ============================================================
+
+// Chỉ nhắm vào link KHÔNG có class: link do trình duyệt tự sinh luôn không có
+// class, còn link tel: do mình chủ động đặt trong template đều mang class riêng
+// (.btn-detail-call, .social-contact-btn, .top-link...). Nếu bỏ :not([class]),
+// rule này sẽ đè màu của các nút gọi điện đã thiết kế sẵn.
+//
+// Lưu ý: iOS Safari style link tự sinh bằng -webkit-text-fill-color, thuộc tính
+// này đè lên `color`. Phải set cả hai, nếu chỉ set `color` thì trên iPhone vẫn đen.
+a[href^="tel:"]:not([class]) {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    text-decoration: none !important;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+        color: inherit !important;
+        -webkit-text-fill-color: inherit !important;
+    }
+}
+
+// Một số WebView bọc số bằng <a> KHÔNG có href (chỉ gắn handler),
+// nên nhắm thêm vào các vùng hiển thị hotline dạng text thuần.
+.header-top-bar .top-bar-item.hotline,
+.technical-item__phone,
+.footer-contact-list,
+.footer-signature-content {
+    a:not([class]),
+    a:not([class]):hover,
+    a:not([class]):focus,
+    a:not([class]):visited {
+        color: inherit !important;
+        -webkit-text-fill-color: inherit !important;
+        text-decoration: none;
+    }
+}

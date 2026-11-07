@@ -1,0 +1,62 @@
+@use "sass:math";
+
+// =============================================================================
+// Ban dung CSS cua frontend WACO.
+//
+// Cac partial va thu vien CSS cua website truoc (UIkit, library.css, config.css,
+// animate.css, nice-select, font-awesome, toastr va cac khoi giao dien rieng cua
+// truc: hero, header, footer, product_slider, partner, solution...) da duoc go
+// bo: khong mot trang WACO nao dung toi chung, ma chung lai ghi de mau chu cua
+// cac the tieu de (vi du UIkit dat h1..h6 { color:#222 } khien tieu de tren nen
+// navy bi chim).
+//
+// Giao dien WACO nam gon trong components/waco.
+// =============================================================================
+@use 'variables/variables';
+@use "components/waco";
+@use "components/tel-autolink";
+
+// Ban Laravel: @import url(fonts.googleapis.com ... Inter). Next (css-loader)
+// khong cho @import url ngoai nam sau rule khac, nen font Inter duoc nap bang
+// <link rel="stylesheet"> trong src/app/(site)/layout.tsx (cung URL).
+
+:root {
+    --main-font: "Inter";
+    --second-font: "Inter";
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: #16202c;
+    font-family: var(--main-font), "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+// Trinh duyet mac dinh gach chan va to xanh moi lien ket; giao dien WACO tu dat
+// mau o tung khoi nen tat mac dinh o day.
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

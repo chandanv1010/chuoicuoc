@@ -1,0 +1,10 @@
+{
+    "method": [
+        {
+            "name": "cod",
+            "image": "frontend/resources/core/img/COD.svg",
+            "title": "Thanh toán khi nhận hàng (COD)"
+        }
+    ],
+    "return": "Nếu bạn không hài lòng với sản phẩm của chúng tôi? Bạn hoàn toàn có thể trả lại sản phẩm <a href=\"\" title=\"Trả sản phẩm\">Tại đây</a>"
+}
