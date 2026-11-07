@@ -13,7 +13,7 @@ export default async function CustomerPasswordPage() {
   const shop = await siteName();
   const customer = await requireCustomerPage();
   const errors = await errorBag();
-  const seo = { meta_title: "Login & security", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("account/password.html") };
+  const seo = { meta_title: "Đăng nhập & bảo mật", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("account/password.html") };
   const field = (name: string, label: string, auto: string) => (
     <div>
       <label htmlFor={`pw-${name}`} className="az-label">
@@ -25,17 +25,17 @@ export default async function CustomerPasswordPage() {
   );
   return (
     <SiteFrame seo={seo}>
-      <AccountShell title="Change password" crumb="Login & security">
+      <AccountShell title="Đổi mật khẩu" crumb="Đăng nhập & bảo mật">
         <div className="rounded-lg border border-az-border p-5">
           <p className="mb-4 text-sm">
-            Use the form below to change the password for your {shop} account <strong>{customer.email}</strong>.
+            Dùng biểu mẫu bên dưới để đổi mật khẩu cho tài khoản {shop} <strong>{customer.email}</strong>.
           </p>
           <form action="/account/password.html" method="post" className="max-w-[360px] space-y-3" noValidate>
-            {field("current_password", "Current password", "current-password")}
-            {field("password", "New password", "new-password")}
-            {field("password_confirmation", "Re-enter new password", "new-password")}
+            {field("current_password", "Mật khẩu hiện tại", "current-password")}
+            {field("password", "Mật khẩu mới", "new-password")}
+            {field("password_confirmation", "Nhập lại mật khẩu mới", "new-password")}
             <button type="submit" className="az-btn az-btn-cart rounded-lg">
-              Save changes
+              Lưu thay đổi
             </button>
           </form>
         </div>

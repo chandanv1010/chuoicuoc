@@ -4,62 +4,47 @@ import { supportEmail } from "@/modules/frontend/legal";
 import { siteName } from "@/lib/site";
 import { STORE } from "@/modules/frontend/store";
 
-/** GET /data-deletion — huong dan yeu cau xoa du lieu (Data Deletion Instructions URL cho Meta/TikTok/Google/Pinterest). */
+/** GET /data-deletion — hướng dẫn yêu cầu xóa dữ liệu. */
 export default async function DataDeletionPage() {
   const shop = await siteName();
   const email = await supportEmail();
   const seo = {
-    meta_title: "Data Deletion Instructions",
+    meta_title: "Hướng dẫn xóa dữ liệu",
     meta_keyword: "",
-    meta_description: `How to request deletion of your personal data held by ${shop}.`,
+    meta_description: `Cách yêu cầu xóa dữ liệu cá nhân mà ${shop} đang lưu giữ.`,
     meta_image: "",
     canonical: url("data-deletion"),
   };
-  const subject = encodeURIComponent("Data deletion request");
+  const subject = encodeURIComponent("Yêu cầu xóa dữ liệu");
   return (
-    <SimplePage seo={seo} title="Data Deletion Instructions" updated={STORE.legalUpdated}>
-      <p>You can ask {shop} to delete the personal data we hold about you at any time. There is no charge.</p>
+    <SimplePage seo={seo} title="Hướng dẫn xóa dữ liệu" updated={STORE.legalUpdated}>
+      <p>Bạn có thể yêu cầu {shop} xóa dữ liệu cá nhân mà chúng tôi lưu giữ về bạn bất cứ lúc nào. Hoàn toàn miễn phí.</p>
 
-      <h2>How to request deletion</h2>
+      <h2>Cách yêu cầu xóa dữ liệu</h2>
       <ol>
         <li>
-          Send an email to <a href={`mailto:${email}?subject=${subject}`}>{email}</a> with the subject &quot;Data deletion request&quot;.
+          Gửi email đến <a href={`mailto:${email}?subject=${subject}`}>{email}</a> với tiêu đề &quot;Yêu cầu xóa dữ liệu&quot;.
         </li>
-        <li>
-          Include the email address of your {shop} account (or the email/phone used on your orders). If your request concerns a social
-          media account, include the platform (Facebook, Instagram, TikTok, Google/YouTube or Pinterest) and your username or profile link.
-        </li>
-        <li>We may reply to confirm the request comes from you before deleting anything.</li>
-        <li>We complete deletion within 30 days and email you a confirmation.</li>
+        <li>Ghi rõ email của tài khoản {shop} (hoặc email/số điện thoại bạn đã dùng khi đặt hàng).</li>
+        <li>Chúng tôi có thể trả lời để xác minh yêu cầu đến từ chính bạn trước khi xóa.</li>
+        <li>Chúng tôi hoàn tất việc xóa trong vòng 30 ngày và gửi email xác nhận.</li>
       </ol>
 
-      <h2>What we delete</h2>
+      <h2>Chúng tôi xóa những gì</h2>
       <ul>
-        <li>Your customer account: name, email, phone, address, password hash and profile photo.</li>
-        <li>Messages you sent through our contact form and reviews you posted (including photos).</li>
-        <li>Your shopping cart and session data.</li>
-        <li>
-          <strong>Data from connected social accounts:</strong> any profile information, account IDs and access tokens we received from Meta
-          (Facebook/Instagram), TikTok, Google/YouTube or Pinterest when you connected or interacted with our app. Access tokens are revoked
-          and removed, and we stop accessing that account.
-        </li>
+        <li>Tài khoản khách hàng: họ tên, email, số điện thoại, địa chỉ, mật khẩu (dạng băm) và ảnh đại diện.</li>
+        <li>Tin nhắn bạn gửi qua biểu mẫu liên hệ và đánh giá bạn đã đăng (kèm hình ảnh).</li>
+        <li>Dữ liệu phiên của bạn trên website.</li>
       </ul>
 
-      <h2>What we may keep</h2>
+      <h2>Chúng tôi có thể giữ lại</h2>
       <p>
-        Records of completed orders (items, amounts, dates and shipping details) may be kept for up to 5 years where required for accounting,
-        tax or fraud prevention. These records are not used for marketing and are deleted when no longer required.
-      </p>
-
-      <h2>Removing app access yourself</h2>
-      <p>
-        You can also disconnect {shop} from your social accounts in each platform&apos;s settings (for example Facebook: Settings &amp;
-        privacy → Settings → Apps and websites; TikTok, Google and Pinterest have similar &quot;connected apps&quot; pages). Disconnecting stops
-        new data from being shared; email us to delete data we already received.
+        Hồ sơ đơn hàng đã hoàn tất (sản phẩm, số tiền, ngày và thông tin giao hàng) có thể được lưu tới 5 năm khi cần cho mục đích kế toán,
+        thuế hoặc chống gian lận. Các hồ sơ này không dùng cho tiếp thị và sẽ được xóa khi không còn cần thiết.
       </p>
 
       <p>
-        See our <a href="/privacy-policy">Privacy Policy</a> for more details.
+        Xem thêm <a href="/privacy-policy">Chính sách bảo mật</a> để biết chi tiết.
       </p>
     </SimplePage>
   );

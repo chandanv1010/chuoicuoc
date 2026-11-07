@@ -54,7 +54,7 @@ export async function PostCatalogueView({
         {items.length === 0 ? (
           <div className="rounded-2xl border border-az-border bg-az-cream px-6 py-12 text-center">
             <span className="stitch mx-auto block h-[2px] w-16 text-az-cart/60" aria-hidden="true" />
-            <p className="mt-5 font-display text-2xl font-semibold">Stories are on the way</p>
+            <p className="mt-5 font-display text-2xl font-semibold">Bài viết sẽ sớm được cập nhật</p>
             <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-az-muted">
               We are writing our first posts — news, tips and gift ideas. In the meantime, take a look around the shop.
             </p>
@@ -69,7 +69,7 @@ export async function PostCatalogueView({
               <section aria-labelledby="latest-h" className={featured ? "mt-12" : ""}>
                 <div className="mb-5 flex items-center gap-4">
                   <h2 id="latest-h" className="font-display text-2xl font-semibold">
-                    {featured ? "More stories" : "Stories"}
+                    {featured ? "Bài viết khác" : "Tin tức"}
                   </h2>
                   <span className="stitch h-[2px] flex-1 text-az-border" aria-hidden="true" />
                 </div>
@@ -103,7 +103,7 @@ export function PostMetaLine({ date, minutes, className = "" }: { date: Date | n
     <p className={`flex flex-wrap items-center gap-x-2 text-xs text-az-muted ${className}`}>
       {date && <time dateTime={date.toISOString()}>{usDate(date)}</time>}
       {date && minutes ? <span aria-hidden="true">·</span> : null}
-      {minutes ? <span>{minutes} min read</span> : null}
+      {minutes ? <span>{minutes} phút đọc</span> : null}
     </p>
   );
 }
@@ -133,7 +133,7 @@ function FeaturedPost({ post, meta }: { post: CardPost; meta?: PostMeta }) {
       </div>
       <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[11px] font-semibold tracking-[0.18em] text-az-cart uppercase">Featured</span>
+          <span className="text-[11px] font-semibold tracking-[0.18em] text-az-cart uppercase">Nổi bật</span>
           <TopicChip topic={meta?.topic} />
         </div>
         <h2 className="mt-3 font-display text-[26px] leading-[1.15] font-semibold sm:text-[34px]">

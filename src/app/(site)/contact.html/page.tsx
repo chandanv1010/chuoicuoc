@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone, Store } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Alert, SiteFrame } from "@/components/site/site-frame";
 import { getFlash } from "@/lib/flash";
 import { writeUrl } from "@/modules/frontend/helpers";
@@ -15,8 +15,8 @@ import { STORE } from "@/modules/frontend/store";
 export default async function ContactPage() {
   const [system, f] = await Promise.all([loadViewSystem(), getFlash()]);
   const seo = {
-    meta_title: "Contact Us",
-    meta_description: `Contact CustomStitch House customer service about orders, personalization and shipping to the United States.`,
+    meta_title: "Liên hệ",
+    meta_description: `Liên hệ ${""}Chổi Cước Việt Nam để được tư vấn và báo giá chổi cước công nghiệp.`,
     meta_keyword: "",
     meta_image: "",
     canonical: writeUrl("contact"),
@@ -32,19 +32,19 @@ export default async function ContactPage() {
   };
 
   const faqs: [string, string][] = [
-    ["How long does delivery take?", `Items are embroidered to order in Vietnam, then shipped with tracking. Most US orders arrive in ${STORE.deliveryDays[0]}–${STORE.deliveryDays[1]} days.`],
-    ["How do I personalize a hat?", "Choose a style with “Text” or “Name” on the product page, then type the exact wording in the order note at checkout. We confirm before stitching."],
-    ["Can I return or exchange?", "Personalized items can't be resold, but if anything arrives damaged or wrong, contact us within 30 days and we'll make it right."],
+    ["Có nhận gia công theo yêu cầu không?", "Có. Chúng tôi nhận làm chổi cước theo kích thước, loại sợi (nylon, PP, inox), đường kính và kiểu trục theo bản vẽ hoặc mẫu của bạn."],
+    ["Thời gian giao hàng bao lâu?", "Hàng có sẵn giao nhanh toàn quốc; hàng gia công theo yêu cầu tùy số lượng, chúng tôi báo thời gian cụ thể khi nhận đơn."],
+    ["Có xuất hóa đơn và báo giá sỉ không?", "Có. Vui lòng để lại thông tin hoặc gọi hotline để được báo giá, chiết khấu theo số lượng và xuất hóa đơn VAT."],
   ];
 
   return (
     <SiteFrame seo={seo}>
       <div className="mx-auto max-w-[1100px] px-4 py-6" id="contact">
-        <h1 className="az-h1">Hello. What can we help you with?</h1>
+        <h1 className="az-h1">Chúng tôi có thể giúp gì cho bạn?</h1>
         <div className="mt-6 grid gap-8 md:grid-cols-[minmax(0,1fr)_320px]">
           <section aria-labelledby="form-h" className="rounded-lg border border-az-border p-5">
             <h2 id="form-h" className="mb-3 text-lg font-bold">
-              Send us a message
+              Gửi tin nhắn cho chúng tôi
             </h2>
             {success && (
               <div className="mb-3">
@@ -53,7 +53,7 @@ export default async function ContactPage() {
             )}
             {errs.length > 0 && (
               <div className="mb-3">
-                <Alert tone="error" title="There was a problem">
+                <Alert tone="error" title="Có lỗi xảy ra">
                   <ul className="list-disc pl-5">
                     {errs.map((e, i) => (
                       <li key={i}>{e}</li>
@@ -66,42 +66,42 @@ export default async function ContactPage() {
               <input type="hidden" name={FORM_TS_FIELD} value={formToken("contact")} />
               {/* honeypot: an khoi nguoi that va trinh doc man hinh, bot dien vao se bi chan */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
-                <label htmlFor="ct-ref">Leave this field empty</label>
+                <label htmlFor="ct-ref">Để trống ô này</label>
                 <input id="ct-ref" name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="ct-name" className="az-label">
-                  Your name
+                  Họ và tên
                 </label>
                 <input id="ct-name" name="name" required autoComplete="name" defaultValue={old("name")} className="az-input" />
               </div>
               <div>
                 <label htmlFor="ct-phone" className="az-label">
-                  Phone number
+                  Số điện thoại
                 </label>
                 <input id="ct-phone" name="phone" type="tel" required autoComplete="tel" defaultValue={old("phone")} className="az-input" />
               </div>
               <div>
                 <label htmlFor="ct-email" className="az-label">
-                  Email <span className="font-normal text-az-muted">(optional)</span>
+                  Email <span className="font-normal text-az-muted">(không bắt buộc)</span>
                 </label>
                 <input id="ct-email" name="email" type="email" autoComplete="email" defaultValue={old("email")} className="az-input" />
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="ct-address" className="az-label">
-                  Order number or address <span className="font-normal text-az-muted">(optional)</span>
+                  Địa chỉ hoặc nội dung cần tư vấn <span className="font-normal text-az-muted">(không bắt buộc)</span>
                 </label>
                 <input id="ct-address" name="address" defaultValue={old("address")} className="az-input" />
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="ct-message" className="az-label">
-                  Message
+                  Nội dung
                 </label>
                 <textarea id="ct-message" name="message" rows={5} defaultValue={old("message")} className="az-input" />
               </div>
               <div className="sm:col-span-2">
                 <button type="submit" className="az-btn az-btn-cart rounded-lg">
-                  Send message
+                  Gửi tin nhắn
                 </button>
               </div>
             </form>
@@ -109,7 +109,7 @@ export default async function ContactPage() {
 
           <aside className="space-y-4 text-sm">
             <div className="rounded-lg border border-az-border p-5">
-              <h2 className="mb-3 text-lg font-bold">Contact information</h2>
+              <h2 className="mb-3 text-lg font-bold">Thông tin liên hệ</h2>
               <ul className="space-y-3">
                 <li className="flex gap-2">
                   <Mail className="size-4 shrink-0 text-az-link" aria-hidden="true" />
@@ -137,12 +137,6 @@ export default async function ContactPage() {
                     {system.contact_address}
                   </li>
                 )}
-                <li className="flex gap-2">
-                  <Store className="size-4 shrink-0 text-az-link" aria-hidden="true" />
-                  <a href={STORE.etsyUrl} target="_blank" rel="noopener noreferrer" className="az-link">
-                    CustomStitch House on Etsy
-                  </a>
-                </li>
               </ul>
             </div>
           </aside>
@@ -150,7 +144,7 @@ export default async function ContactPage() {
 
         <section className="mt-8" aria-labelledby="faq-h">
           <h2 id="faq-h" className="az-h2 mb-3">
-            Frequently asked questions
+            Câu hỏi thường gặp
           </h2>
           <div className="divide-y divide-az-border rounded-lg border border-az-border">
             {faqs.map(([q, a]) => (

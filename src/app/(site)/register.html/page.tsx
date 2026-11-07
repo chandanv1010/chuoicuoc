@@ -13,7 +13,7 @@ import { siteName } from "@/lib/site";
 export default async function CustomerRegisterPage() {
   const shop = await siteName();
   const [errors, old] = await Promise.all([errorBag(), oldInput()]);
-  const seo = { meta_title: "Create account", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("register.html") };
+  const seo = { meta_title: "Tạo tài khoản", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("register.html") };
   const value = (k: string) => old<string>(k, "") ?? "";
   const input = (name: string, label: string, opts: { type?: string; auto?: string; placeholder?: string; hint?: string } = {}) => (
     <div className="mt-3 first:mt-0">
@@ -43,34 +43,34 @@ export default async function CustomerRegisterPage() {
         </div>
       ) : null}
       <div className="rounded-lg border border-az-border px-6 py-5">
-        <h1 className="mb-3 text-[28px] leading-9">Create account</h1>
+        <h1 className="mb-3 text-[28px] leading-9">Tạo tài khoản</h1>
         <form action="/register.html" method="post" noValidate>
-          {input("name", "Your name", { auto: "name", placeholder: "First and last name" })}
+          {input("name", "Họ và tên", { auto: "name", placeholder: "Họ và tên của bạn" })}
           {input("email", "Email", { type: "email", auto: "email" })}
-          {input("phone", "Mobile number", { type: "tel", auto: "tel" })}
-          {input("address", "Shipping address", { auto: "street-address", placeholder: "Street, City, State ZIP" })}
-          {input("password", "Password", { type: "password", auto: "new-password", placeholder: "At least 6 characters", hint: "Passwords must be at least 6 characters." })}
-          {input("re_password", "Re-enter password", { type: "password", auto: "new-password" })}
+          {input("phone", "Số điện thoại", { type: "tel", auto: "tel" })}
+          {input("address", "Địa chỉ", { auto: "street-address", placeholder: "Số nhà, đường, phường/xã, quận/huyện, tỉnh/TP" })}
+          {input("password", "Mật khẩu", { type: "password", auto: "new-password", placeholder: "Tối thiểu 6 ký tự", hint: "Mật khẩu tối thiểu 6 ký tự." })}
+          {input("re_password", "Nhập lại mật khẩu", { type: "password", auto: "new-password" })}
           <button type="submit" className="az-btn az-btn-cart mt-4 w-full rounded-lg">
-            Continue
+            Tiếp tục
           </button>
         </form>
         <p className="mt-4 text-xs">
-          By creating an account, you agree to {shop}&apos;s{" "}
+          Khi tạo tài khoản, bạn đồng ý với {" "}
           <a href="/terms" className="az-link">
-            Conditions of Use
+            Điều khoản sử dụng
           </a>{" "}
-          and{" "}
+          và{" "}
           <a href="/privacy-policy" className="az-link">
-            Privacy Notice
-          </a>
-          .
+            Chính sách bảo mật
+          </a>{" "}
+          của {shop}.
         </p>
         <hr className="my-4 border-az-border" />
         <p className="text-[13px]">
-          Already have an account?{" "}
+          Đã có tài khoản?{" "}
           <a href="/login.html" className="az-link">
-            Sign in ›
+            Đăng nhập ›
           </a>
         </p>
       </div>

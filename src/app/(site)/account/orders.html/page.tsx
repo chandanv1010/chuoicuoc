@@ -22,20 +22,20 @@ export default async function CustomerOrdersPage({ searchParams }: { searchParam
   const page = resolvePage(Array.isArray(sp.page) ? sp.page[0] : sp.page);
   const list = await paginateCustomerOrders(customer.id, page);
   const orders = await Promise.all(list.rows.map(async (o) => ({ order: o, items: await orderProducts(o.id) })));
-  const seo = { meta_title: "Your Orders", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("account/orders.html") };
+  const seo = { meta_title: "Đơn hàng", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("account/orders.html") };
   const lastPage = Math.max(1, Math.ceil(list.total / list.perPage));
 
   return (
     <SiteFrame seo={seo}>
-      <AccountShell title="Your Orders" crumb="Your Orders" wide>
+      <AccountShell title="Đơn hàng của bạn" crumb="Đơn hàng" wide>
         <p className="mb-4 text-sm">
-          <strong>{list.total} order{list.total === 1 ? "" : "s"}</strong> placed
+          đã đặt <strong>{list.total} đơn hàng</strong>
         </p>
         {orders.length === 0 ? (
           <div className="rounded-lg border border-az-border p-6 text-sm">
-            <p>You have not placed any orders yet.</p>
+            <p>Bạn chưa đặt đơn hàng nào.</p>
             <a href="/products.html" className="az-link mt-2 inline-block">
-              Start shopping
+              Bắt đầu mua sắm
             </a>
           </div>
         ) : (
@@ -50,29 +50,29 @@ export default async function CustomerOrdersPage({ searchParams }: { searchParam
                 <li key={String(order.id)} className="overflow-hidden rounded-lg border border-az-border">
                   <div className="flex flex-wrap gap-x-8 gap-y-2 bg-[#f0f2f2] px-4 py-3 text-xs text-az-muted">
                     <div>
-                      <p className="uppercase">Order placed</p>
+                      <p className="uppercase">Ngày đặt</p>
                       <p className="text-sm text-az-text">{usDate(order.created_at)}</p>
                     </div>
                     <div>
-                      <p className="uppercase">Total</p>
+                      <p className="uppercase">Tổng tiền</p>
                       <p className="text-sm text-az-text">{formatPrice(total)}</p>
                     </div>
                     <div>
-                      <p className="uppercase">Ship to</p>
+                      <p className="uppercase">Giao đến</p>
                       <p className="text-sm text-az-link">{order.fullname || "-"}</p>
                     </div>
                     <div className="ml-auto text-right">
-                      <p className="uppercase">Order # {order.code}</p>
+                      <p className="uppercase">Đơn # {order.code}</p>
                       <a href={detail} className="az-link text-sm">
-                        View order details
+                        Xem chi tiết đơn
                       </a>
                     </div>
                   </div>
                   <div className="p-4">
                     <p className={`text-lg font-bold ${cancelled ? "text-az-deal" : ""}`}>
-                      {cancelled ? "Cancelled" : order.delivery === "pending" ? ORDER_CONFIRM[order.confirm] ?? "Order received" : ORDER_DELIVERY(order.delivery)}
+                      {cancelled ? "Đã huỷ" : order.delivery === "pending" ? ORDER_CONFIRM[order.confirm] ?? "Đã nhận đơn" : ORDER_DELIVERY(order.delivery)}
                     </p>
-                    <p className="mb-3 text-sm text-az-muted">{order.payment === "paid" ? "Payment received" : "Awaiting payment"}</p>
+                    <p className="mb-3 text-sm text-az-muted">{order.payment === "paid" ? "Đã thanh toán" : "Chờ thanh toán"}</p>
                     <ul className="space-y-3">
                       {items.map((it) => (
                         <li key={String(it.id)} className="flex gap-3">
@@ -82,7 +82,7 @@ export default async function CustomerOrdersPage({ searchParams }: { searchParam
                               {it.name}
                             </a>
                             <p className="text-xs text-az-muted">
-                              Qty: {it.qty} · {formatPrice(it.price)}
+                              SL: {it.qty} · {formatPrice(it.price)}
                             </p>
                           </div>
                         </li>

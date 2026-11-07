@@ -41,14 +41,14 @@ export type FloatingConfig = {
 };
 
 export const KIND_INFO: Record<FloatingKind, { label: string; color: string; valueLabel?: string; placeholder?: string; defaultLabel: string }> = {
-  messenger: { label: "Messenger", color: "#0866ff", valueLabel: "Trang / username", placeholder: "yourpage", defaultLabel: "Chat on Messenger" },
-  zalo: { label: "Zalo", color: "#0068ff", valueLabel: "Số điện thoại Zalo", placeholder: "0912345678", defaultLabel: "Chat on Zalo" },
-  phone: { label: "Gọi điện", color: "#16a34a", valueLabel: "Số điện thoại", placeholder: "+84 912 345 678", defaultLabel: "Call us" },
+  messenger: { label: "Messenger", color: "#0866ff", valueLabel: "Trang / username", placeholder: "yourpage", defaultLabel: "Chat Messenger" },
+  zalo: { label: "Zalo", color: "#0068ff", valueLabel: "Số điện thoại Zalo", placeholder: "0912345678", defaultLabel: "Chat Zalo" },
+  phone: { label: "Gọi điện", color: "#16a34a", valueLabel: "Số điện thoại", placeholder: "+84 912 345 678", defaultLabel: "Gọi cho chúng tôi" },
   whatsapp: { label: "WhatsApp", color: "#25d366", valueLabel: "Số WhatsApp (mã quốc gia)", placeholder: "84912345678", defaultLabel: "WhatsApp" },
-  email: { label: "Email", color: "#c8553d", valueLabel: "Địa chỉ email", placeholder: "hello@example.com", defaultLabel: "Email us" },
-  form: { label: "Form liên hệ", color: "#22201c", defaultLabel: "Send us a message" },
-  top: { label: "Lên đầu trang", color: "#4b5563", defaultLabel: "Back to top" },
-  link: { label: "Liên kết khác", color: "#7c3aed", valueLabel: "Đường dẫn", placeholder: "https://…", defaultLabel: "Open" },
+  email: { label: "Email", color: "#c8553d", valueLabel: "Địa chỉ email", placeholder: "hello@example.com", defaultLabel: "Gửi email" },
+  form: { label: "Form liên hệ", color: "#22201c", defaultLabel: "Gửi tin nhắn" },
+  top: { label: "Lên đầu trang", color: "#4b5563", defaultLabel: "Lên đầu trang" },
+  link: { label: "Liên kết khác", color: "#7c3aed", valueLabel: "Đường dẫn", placeholder: "https://…", defaultLabel: "Mở" },
 };
 
 export const DEFAULT_FLOATING: FloatingConfig = {
@@ -69,12 +69,12 @@ export const DEFAULT_FLOATING: FloatingConfig = {
   hideOnMobile: false,
   topAfterScroll: true,
   form: {
-    title: "Send us a message",
-    subtitle: "We usually reply within 1–2 business days.",
-    submit: "Send",
+    title: "Gửi tin nhắn cho chúng tôi",
+    subtitle: "Chúng tôi thường phản hồi trong 1–2 ngày làm việc.",
+    submit: "Gửi",
     askEmail: true,
     askMessage: true,
-    success: "Thanks! Your message was sent. We will get back to you soon.",
+    success: "Cảm ơn bạn! Tin nhắn đã được gửi. Chúng tôi sẽ liên hệ lại sớm.",
   },
 };
 

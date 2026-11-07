@@ -6,9 +6,9 @@
  */
 export const STORE = {
   /** Khau hieu (footer, tieu de trang chu khi chua dat SEO): env NEXT_PUBLIC_STORE_TAGLINE */
-  tagline: process.env.NEXT_PUBLIC_STORE_TAGLINE || "Quality products, delivered to your door",
+  tagline: process.env.NEXT_PUBLIC_STORE_TAGLINE || "Chổi cước công nghiệp, giao hàng toàn quốc",
   /** Email nhan yeu cau ve du lieu / quyen rieng tu — chu shop sua tai day hoac o systems.contact_email */
-  supportEmail: "support@example.com",
+  supportEmail: "support@choicuoc.vn",
   /** Link shop Etsy cua site (env ETSY_SHOP_URL, chi doc o server); trong -> an cac link Etsy. */
   etsyUrl: process.env.ETSY_SHOP_URL ?? "",
   /**
@@ -20,7 +20,7 @@ export const STORE = {
   origin: process.env.NEXT_PUBLIC_STORE_ORIGIN ?? "",
   /** So ngay giao hang du kien */
   deliveryDays: [10, 18] as [number, number],
-  legalUpdated: "October 26, 2026",
+  legalUpdated: "26/10/2026",
 } as const;
 
 /** reviews.reviewable_type cua san pham (morph class Laravel) */
@@ -28,7 +28,7 @@ export const PRODUCT_REVIEWABLE = ["App", "Models", "Product"].join(String.fromC
 
 /** "Arrives Nov 4 - Nov 12" tinh tu hom nay */
 export function deliveryWindow(from = new Date()): string {
-  const fmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
+  const fmt = new Intl.DateTimeFormat("vi-VN", { day: "numeric", month: "numeric" });
   const add = (d: number) => new Date(from.getTime() + d * 86_400_000);
   return `${fmt.format(add(STORE.deliveryDays[0]))} – ${fmt.format(add(STORE.deliveryDays[1]))}`;
 }
@@ -39,10 +39,10 @@ export function deliveryWindow(from = new Date()): string {
  */
 export function usDate(d: Date | null | undefined, withTime = false): string {
   if (!d) return "";
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("vi-VN", {
     timeZone: "UTC",
-    month: "short",
     day: "numeric",
+    month: "numeric",
     year: "numeric",
     ...(withTime ? { hour: "numeric", minute: "2-digit" } : {}),
   }).format(d);

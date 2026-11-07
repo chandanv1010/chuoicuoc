@@ -33,16 +33,16 @@ export function Pager({
   }
   const cell = "flex h-10 min-w-10 items-center justify-center px-3 text-sm";
   return (
-    <nav aria-label="Pagination" className="my-6 flex justify-center">
+    <nav aria-label="Phân trang" className="my-6 flex justify-center">
       <ul className="flex overflow-hidden rounded-lg border border-az-border bg-white">
         <li className="border-r border-az-border">
           {page > 1 ? (
             <a href={link(page - 1)} className={`${cell} gap-1 hover:bg-[#f7fafa]`} rel="prev">
-              <ChevronLeft className="size-4" aria-hidden="true" /> Previous
+              <ChevronLeft className="size-4" aria-hidden="true" /> Trước
             </a>
           ) : (
             <span className={`${cell} gap-1 text-[#9a9a9a]`} aria-disabled="true">
-              <ChevronLeft className="size-4" aria-hidden="true" /> Previous
+              <ChevronLeft className="size-4" aria-hidden="true" /> Trước
             </span>
           )}
         </li>
@@ -68,11 +68,11 @@ export function Pager({
         <li className="border-l border-az-border">
           {page < lastPage ? (
             <a href={link(page + 1)} className={`${cell} gap-1 hover:bg-[#f7fafa]`} rel="next">
-              Next <ChevronRight className="size-4" aria-hidden="true" />
+              Sau <ChevronRight className="size-4" aria-hidden="true" />
             </a>
           ) : (
             <span className={`${cell} gap-1 text-[#9a9a9a]`} aria-disabled="true">
-              Next <ChevronRight className="size-4" aria-hidden="true" />
+              Sau <ChevronRight className="size-4" aria-hidden="true" />
             </span>
           )}
         </li>

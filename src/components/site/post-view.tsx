@@ -99,9 +99,9 @@ export async function PostView({ postId, bare, preview }: { postId: bigint; bare
         <div className="bg-az-bg px-0 py-8 sm:px-4">
           <div className="mx-auto max-w-[1200px] overflow-hidden sm:rounded-2xl">
             <ProductRow
-              title="Shop the story"
+              title="Sản phẩm trong bài"
               href={story.keyword ? `/products.html?keyword=${encodeURIComponent(story.keyword)}` : "/products.html"}
-              linkLabel="See all"
+              linkLabel="Xem tất cả"
             >
               {story.products.map((p) => (
                 <MiniCard key={p.id} product={p} />
@@ -115,7 +115,7 @@ export async function PostView({ postId, bare, preview }: { postId: bigint; bare
         <section className="mx-auto max-w-[1200px] px-4 py-10" aria-labelledby="more-h">
           <div className="mb-6 flex items-center gap-4">
             <h2 id="more-h" className="font-display text-2xl font-semibold">
-              More stories
+              Bài viết khác
             </h2>
             <span className="stitch h-[2px] flex-1 text-az-border" aria-hidden="true" />
             <a href={listHref} className="az-link shrink-0 text-sm font-medium">

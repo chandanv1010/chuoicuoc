@@ -10,7 +10,7 @@ export function AccountShell({ title, crumb, children, wide = false }: { title: 
       {crumb !== undefined && (
         <nav aria-label="Breadcrumb" className="mb-2 text-sm">
           <a href="/account.html" className="az-link">
-            Your Account
+            Tài khoản
           </a>
           <span className="mx-1.5 text-az-muted" aria-hidden="true">
             ›
@@ -34,8 +34,8 @@ export function FieldError({ message, id }: { message?: string; id?: string }) {
 }
 
 /** Nhan trang thai cua don (order.confirm / payment / delivery). */
-export const ORDER_CONFIRM: Record<string, string> = { pending: "Order received", confirm: "Confirmed", cancle: "Cancelled" };
+export const ORDER_CONFIRM: Record<string, string> = { pending: "Đã nhận đơn", confirm: "Đã xác nhận", cancle: "Đã huỷ" };
 export const ORDER_DELIVERY = (d: string) =>
-  d === "pending" ? "Preparing for shipment" : d === "processing" ? "Shipped" : d === "success" ? "Delivered" : "-";
-export const ORDER_PAYMENT = (p: string) => (p === "paid" ? "Paid" : "Unpaid");
-export const PAYMENT_METHOD = (m: string) => (m === "cod" ? "Pay on delivery" : m === "bank" ? "Bank transfer" : m === "qr_bank" ? "QR bank transfer" : m || "-");
+  d === "pending" ? "Đang chuẩn bị hàng" : d === "processing" ? "Đang giao" : d === "success" ? "Đã giao" : "-";
+export const ORDER_PAYMENT = (p: string) => (p === "paid" ? "Đã thanh toán" : "Chưa thanh toán");
+export const PAYMENT_METHOD = (m: string) => (m === "cod" ? "Thanh toán khi nhận hàng" : m === "bank" ? "Chuyển khoản" : m === "qr_bank" ? "Chuyển khoản QR" : m || "-");

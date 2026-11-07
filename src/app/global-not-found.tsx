@@ -10,13 +10,13 @@ import { siteName } from "@/lib/site";
  */
 // Tieu de 404 o <head> (the <title> trong NotFound async chi nam trong luong RSC, khong vao HTML ban dau)
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: `Page Not Found | ${await siteName()}` };
+  return { title: `Không tìm thấy trang | ${await siteName()}` };
 }
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export default function GlobalNotFound() {
   return (
-    <html lang="en">
+    <html lang="vi">
       <body className="antialiased">
         <NotFound />
       </body>

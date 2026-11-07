@@ -11,11 +11,11 @@ import { AccountShell } from "@/modules/frontend/shop/views";
 type SP = Promise<Record<string, string | string[] | undefined>>;
 
 const TYPE_LABELS: Record<string, string> = {
-  earn: "Points earned",
-  revertEarn: "Earned points reversed",
-  use: "Points redeemed",
-  revertUsed: "Redeemed points refunded",
-  revertUse: "Redeemed points refunded",
+  earn: "Cộng điểm",
+  revertEarn: "Hoàn lại điểm đã cộng",
+  use: "Dùng điểm",
+  revertUsed: "Hoàn lại điểm đã dùng",
+  revertUse: "Hoàn lại điểm đã dùng",
 };
 
 /** GET /account/rewards.html — CustomerController@pointHistory (bang customer_point_history). */
@@ -24,19 +24,19 @@ export default async function CustomerPointHistoryPage({ searchParams }: { searc
   const sp = await searchParams;
   const page = resolvePage(Array.isArray(sp.page) ? sp.page[0] : sp.page);
   const list = await paginatePointHistory(customer.id, page);
-  const seo = { meta_title: "Reward points", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("account/rewards.html") };
+  const seo = { meta_title: "Điểm thưởng", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("account/rewards.html") };
   const lastPage = Math.max(1, Math.ceil(list.total / list.perPage));
 
   return (
     <SiteFrame seo={seo}>
-      <AccountShell title="Reward points" crumb="Transaction history" wide>
+      <AccountShell title="Điểm thưởng" crumb="Lịch sử giao dịch" wide>
         <p className="mb-4 text-sm">
-          Current balance: <strong>{numberFormat(customer.point ?? 0)} points</strong>
+          Số dư hiện tại: <strong>{numberFormat(customer.point ?? 0)} điểm</strong>
         </p>
         {list.rows.length === 0 ? (
           <div className="rounded-lg border border-az-border p-6 text-sm">
-            <p className="font-bold">No transactions yet</p>
-            <p className="text-az-muted">Reward points appear here after an order is completed.</p>
+            <p className="font-bold">Chưa có giao dịch nào</p>
+            <p className="text-az-muted">Điểm thưởng sẽ hiển thị ở đây sau khi đơn hàng hoàn tất.</p>
           </div>
         ) : (
           <div className="overflow-x-auto rounded-lg border border-az-border">
@@ -44,22 +44,22 @@ export default async function CustomerPointHistoryPage({ searchParams }: { searc
               <thead className="bg-[#f0f2f2] text-left text-xs text-az-muted uppercase">
                 <tr>
                   <th scope="col" className="px-3 py-2">
-                    Transaction
+                    Giao dịch
                   </th>
                   <th scope="col" className="px-3 py-2">
-                    Order
+                    Đơn hàng
                   </th>
                   <th scope="col" className="px-3 py-2">
-                    Type
+                    Loại
                   </th>
                   <th scope="col" className="px-3 py-2 text-right">
-                    Points
+                    Điểm
                   </th>
                   <th scope="col" className="px-3 py-2">
-                    Date
+                    Ngày
                   </th>
                   <th scope="col" className="px-3 py-2">
-                    Note
+                    Ghi chú
                   </th>
                 </tr>
               </thead>

@@ -13,7 +13,7 @@ export async function AuthFrame({ seo, children }: { seo: Seo; children: React.R
       <SeoHead seo={seo} />
       <main id="main" className="flex-1 bg-white px-4 pb-8">
         <div className="pt-4 pb-3 text-center">
-          <a href="/" className="inline-block" aria-label={`${shop} home`}>
+          <a href="/" className="inline-block" aria-label={`${shop} - trang chủ`}>
             <BrandLogo name={shop} tone="dark" />
           </a>
         </div>
@@ -26,17 +26,17 @@ export async function AuthFrame({ seo, children }: { seo: Seo; children: React.R
         <ul className="mb-2 flex justify-center gap-6">
           <li>
             <a href="/terms" className="az-link">
-              Conditions of Use
+              Điều khoản sử dụng
             </a>
           </li>
           <li>
             <a href="/privacy-policy" className="az-link">
-              Privacy Notice
+              Chính sách bảo mật
             </a>
           </li>
           <li>
             <a href="/contact.html" className="az-link">
-              Help
+              Trợ giúp
             </a>
           </li>
         </ul>

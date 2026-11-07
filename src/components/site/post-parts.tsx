@@ -73,7 +73,7 @@ export async function PostShopStory({ postId }: P) {
   const story = await getStoryProducts(post.meta_keyword);
   if (!story.products.length) return null;
   return (
-    <ProductRow title="Shop the story" href={story.keyword ? `/products.html?keyword=${encodeURIComponent(story.keyword)}` : "/products.html"} linkLabel="See all">
+    <ProductRow title="Sản phẩm trong bài" href={story.keyword ? `/products.html?keyword=${encodeURIComponent(story.keyword)}` : "/products.html"} linkLabel="Xem tất cả">
       {story.products.map((p) => (
         <MiniCard key={p.id} product={p} />
       ))}

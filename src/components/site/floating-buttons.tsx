@@ -191,11 +191,11 @@ function FormDialog({ config, token, preview, onClose }: { config: FloatingConfi
         setMessage(f.success || json.message || "");
       } else {
         setState("idle");
-        setErrors(json.errors ?? ["Something went wrong. Please try again."]);
+        setErrors(json.errors ?? ["Có lỗi xảy ra. Vui lòng thử lại."]);
       }
     } catch {
       setState("idle");
-      setErrors(["Something went wrong. Please try again."]);
+      setErrors(["Có lỗi xảy ra. Vui lòng thử lại."]);
     }
   };
 
@@ -210,7 +210,7 @@ function FormDialog({ config, token, preview, onClose }: { config: FloatingConfi
             </h2>
             {f.subtitle && <p className="mt-0.5 text-sm text-[#6b645a]">{f.subtitle}</p>}
           </div>
-          <button type="button" onClick={onClose} aria-label="Close" className="grid size-8 shrink-0 place-items-center rounded-full hover:bg-black/5">
+          <button type="button" onClick={onClose} aria-label="Đóng" className="grid size-8 shrink-0 place-items-center rounded-full hover:bg-black/5">
             <X className="size-4" aria-hidden="true" />
           </button>
         </div>
@@ -226,10 +226,10 @@ function FormDialog({ config, token, preview, onClose }: { config: FloatingConfi
             <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
               <input name="contact_ref_code" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
             </div>
-            <input ref={first} name="name" required placeholder="Your name" autoComplete="name" className={input} aria-label="Your name" />
-            <input name="phone" required placeholder="Phone number" type="tel" autoComplete="tel" className={input} aria-label="Phone number" />
-            {f.askEmail && <input name="email" type="email" placeholder="Email (optional)" autoComplete="email" className={input} aria-label="Email" />}
-            {f.askMessage && <textarea name="message" rows={3} placeholder="How can we help?" className={input} aria-label="Message" />}
+            <input ref={first} name="name" required placeholder="Họ và tên" autoComplete="name" className={input} aria-label="Họ và tên" />
+            <input name="phone" required placeholder="Số điện thoại" type="tel" autoComplete="tel" className={input} aria-label="Số điện thoại" />
+            {f.askEmail && <input name="email" type="email" placeholder="Email (không bắt buộc)" autoComplete="email" className={input} aria-label="Email" />}
+            {f.askMessage && <textarea name="message" rows={3} placeholder="Chúng tôi có thể giúp gì?" className={input} aria-label="Nội dung" />}
             {errors.length > 0 && (
               <ul role="alert" className="text-sm text-[#b91c1c]">
                 {errors.map((e) => (

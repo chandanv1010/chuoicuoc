@@ -1,83 +1,81 @@
 import { SimplePage } from "@/components/site/simple-page";
 import { url } from "@/modules/frontend/helpers";
 import { supportEmail } from "@/modules/frontend/legal";
+import { siteName } from "@/lib/site";
 import { STORE } from "@/modules/frontend/store";
 
-/** GET /terms — dieu khoan su dung / ban hang. */
+/** GET /terms — điều khoản sử dụng / mua bán. */
 export default async function TermsPage() {
-  const email = await supportEmail();
+  const [email, shop] = await Promise.all([supportEmail(), siteName()]);
   const seo = {
-    meta_title: "Terms of Service",
+    meta_title: "Điều khoản sử dụng",
     meta_keyword: "",
-    meta_description: `Terms and conditions for shopping with CustomStitch House.`,
+    meta_description: `Điều khoản và điều kiện khi mua hàng tại ${shop}.`,
     meta_image: "",
     canonical: url("terms"),
   };
   return (
-    <SimplePage seo={seo} title="Terms of Service" updated={STORE.legalUpdated}>
+    <SimplePage seo={seo} title="Điều khoản sử dụng" updated={STORE.legalUpdated}>
       <p>
-        These Terms of Service govern your use of the CustomStitch House website and any purchase you make from us. By using the site or placing an
-        order, you agree to these terms.
+        Điều khoản này điều chỉnh việc bạn sử dụng website {shop} và việc mua hàng từ chúng tôi. Khi sử dụng website hoặc đặt hàng,
+        bạn đồng ý với các điều khoản này.
       </p>
 
-      <h2>1. About us</h2>
+      <h2>1. Về chúng tôi</h2>
+      <p>{shop} sản xuất và cung cấp các loại chổi cước công nghiệp, nhận gia công theo yêu cầu và giao hàng trên toàn quốc.</p>
+
+      <h2>2. Tài khoản</h2>
       <p>
-        CustomStitch House is a small business in Vietnam that makes machine-embroidered hats, napkins and related products and ships them
-        internationally, mainly to the United States.
+        Bạn chịu trách nhiệm bảo mật mật khẩu và các hoạt động dưới tài khoản của mình. Vui lòng cung cấp thông tin liên hệ và giao hàng
+        chính xác.
       </p>
 
-      <h2>2. Accounts</h2>
-      <p>
-        You are responsible for keeping your password confidential and for activity under your account. Please give accurate contact and
-        shipping information.
-      </p>
-
-      <h2>3. Orders and pricing</h2>
+      <h2>3. Đơn hàng và giá</h2>
       <ul>
-        <li>All prices are shown in US dollars (USD). We may correct obvious pricing errors before an order is confirmed.</li>
-        <li>An order is accepted when we confirm it by email or phone. We may decline an order, for example if an item is unavailable.</li>
-        <li>Import duties or taxes charged by your country, if any, are the buyer&apos;s responsibility unless stated otherwise.</li>
+        <li>Giá hiển thị bằng VND. Chúng tôi có thể điều chỉnh các lỗi giá rõ ràng trước khi xác nhận đơn.</li>
+        <li>Đơn hàng được chấp nhận khi chúng tôi xác nhận qua điện thoại hoặc email. Chúng tôi có thể từ chối đơn, ví dụ khi hết hàng.</li>
+        <li>Với hàng gia công theo yêu cầu, số lượng và thời gian sản xuất được thống nhất khi đặt hàng.</li>
       </ul>
 
-      <h2>4. Personalized items</h2>
+      <h2>4. Hàng theo yêu cầu</h2>
       <p>
-        Personalized items are made to your instructions. Please check spelling carefully — we embroider the text exactly as provided. You
-        must have the right to use any names, logos or designs you ask us to embroider.
+        Sản phẩm gia công được làm theo thông số bạn cung cấp (kích thước, loại sợi, kiểu trục). Vui lòng kiểm tra kỹ thông số trước khi
+        xác nhận sản xuất.
       </p>
 
-      <h2>5. Shipping</h2>
+      <h2>5. Giao hàng</h2>
       <p>
-        Delivery estimates are not guaranteed and may be affected by customs or carrier delays. Risk of loss passes to you when the package
-        is delivered to the address you provided.
+        Thời gian giao hàng là ước tính và có thể bị ảnh hưởng bởi đơn vị vận chuyển. Rủi ro mất mát chuyển sang bạn khi hàng được giao
+        đến địa chỉ bạn cung cấp.
       </p>
 
-      <h2>6. Returns and problems</h2>
+      <h2>6. Đổi trả và sự cố</h2>
       <p>
-        Because items are made to order, we do not accept returns for change of mind on personalized items. If your item arrives damaged,
-        defective or different from what you ordered, contact us within 30 days of delivery and we will offer a replacement or refund.
+        Vì nhiều sản phẩm được làm theo yêu cầu, chúng tôi không nhận đổi trả vì lý do đổi ý với hàng gia công. Nếu sản phẩm bị lỗi,
+        hư hỏng hoặc khác với đơn đặt, vui lòng liên hệ trong vòng 30 ngày để được đổi hoặc hoàn tiền.
       </p>
 
-      <h2>7. Reviews and content you submit</h2>
+      <h2>7. Nội dung bạn gửi</h2>
       <p>
-        By submitting a review, photo or message, you allow us to display it on our website and social media. Do not submit unlawful,
-        offensive or misleading content; we may remove it.
+        Khi gửi đánh giá, hình ảnh hoặc tin nhắn, bạn cho phép chúng tôi hiển thị nội dung đó trên website. Không gửi nội dung vi phạm
+        pháp luật, phản cảm hoặc gây hiểu lầm; chúng tôi có thể gỡ bỏ.
       </p>
 
-      <h2>8. Intellectual property</h2>
-      <p>Designs, photos and text on this website belong to CustomStitch House unless otherwise noted and may not be copied without permission.</p>
+      <h2>8. Sở hữu trí tuệ</h2>
+      <p>Hình ảnh, nội dung trên website thuộc về {shop} trừ khi có ghi chú khác và không được sao chép khi chưa được phép.</p>
 
-      <h2>9. Limitation of liability</h2>
+      <h2>9. Giới hạn trách nhiệm</h2>
       <p>
-        To the extent permitted by law, our total liability for any claim relating to a product is limited to the amount you paid for that
-        product.
+        Trong phạm vi pháp luật cho phép, tổng trách nhiệm của chúng tôi cho mỗi khiếu nại liên quan đến một sản phẩm được giới hạn ở số tiền
+        bạn đã trả cho sản phẩm đó.
       </p>
 
-      <h2>10. Changes</h2>
-      <p>We may update these terms. The version in effect when you place an order applies to that order.</p>
+      <h2>10. Thay đổi</h2>
+      <p>Chúng tôi có thể cập nhật điều khoản này. Phiên bản có hiệu lực tại thời điểm bạn đặt hàng sẽ áp dụng cho đơn hàng đó.</p>
 
-      <h2>11. Contact</h2>
+      <h2>11. Liên hệ</h2>
       <p>
-        Questions about these terms: <a href={`mailto:${email}`}>{email}</a>. See also our <a href="/privacy-policy">Privacy Policy</a>.
+        Thắc mắc về điều khoản: <a href={`mailto:${email}`}>{email}</a>. Xem thêm <a href="/privacy-policy">Chính sách bảo mật</a>.
       </p>
     </SimplePage>
   );

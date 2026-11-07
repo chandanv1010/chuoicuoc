@@ -20,7 +20,7 @@ const PINTEREST_VERIFY = process.env.PINTEREST_DOMAIN_VERIFY ?? "";
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const shop = await siteName();
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="robots" content="index,follow" />

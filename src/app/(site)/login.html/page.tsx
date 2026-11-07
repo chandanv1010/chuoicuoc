@@ -12,18 +12,18 @@ import { siteName } from "@/lib/site";
 export default async function CustomerLoginPage() {
   const shop = await siteName();
   const [errors, old] = await Promise.all([errorBag(), oldInput()]);
-  const seo = { meta_title: "Sign-In", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("login.html") };
+  const seo = { meta_title: "Đăng nhập", meta_keyword: "", meta_description: "", meta_image: "", canonical: url("login.html") };
   return (
     <AuthFrame seo={seo}>
       {errors.has("login") ? (
         <div className="mb-3">
-          <Alert tone="error" title="There was a problem">
+          <Alert tone="error" title="Có lỗi xảy ra">
             {errors.first("login")}
           </Alert>
         </div>
       ) : null}
       <div className="rounded-lg border border-az-border px-6 py-5">
-        <h1 className="mb-3 text-[28px] leading-9">Sign in</h1>
+        <h1 className="mb-3 text-[28px] leading-9">Đăng nhập</h1>
         <form action="/login.html" method="post" noValidate>
           <label htmlFor="email" className="az-label">
             Email
@@ -40,40 +40,40 @@ export default async function CustomerLoginPage() {
           />
           <FieldError id="email-err" message={errors.first("email")} />
           <label htmlFor="password" className="az-label mt-3">
-            Password
+            Mật khẩu
           </label>
           <input id="password" name="password" type="password" autoComplete="current-password" aria-describedby="password-err" className="az-input" />
           <FieldError id="password-err" message={errors.first("password")} />
           <button type="submit" className="az-btn az-btn-cart mt-4 w-full rounded-lg">
-            Sign in
+            Đăng nhập
           </button>
           <label className="mt-3 flex items-center gap-2 text-[13px]">
-            <input type="checkbox" name="rememberMe" /> Keep me signed in
+            <input type="checkbox" name="rememberMe" /> Duy trì đăng nhập
           </label>
         </form>
         <p className="mt-4 text-xs">
-          By continuing, you agree to {shop}&apos;s{" "}
+          Khi tiếp tục, bạn đồng ý với {" "}
           <a href="/terms" className="az-link">
-            Conditions of Use
+            Điều khoản sử dụng
           </a>{" "}
-          and{" "}
+          và{" "}
           <a href="/privacy-policy" className="az-link">
-            Privacy Notice
-          </a>
-          .
+            Chính sách bảo mật
+          </a>{" "}
+          của {shop}.
         </p>
         <p className="mt-3 text-[13px]">
           <a href="/contact.html" className="az-link">
-            Forgot your password? Contact us
+            Quên mật khẩu? Liên hệ với chúng tôi
           </a>
         </p>
       </div>
       <div className="relative my-5 text-center text-xs text-az-muted">
         <span className="absolute inset-x-0 top-1/2 border-t border-[#e7e7e7]" aria-hidden="true" />
-        <span className="relative bg-white px-2">New to {shop}?</span>
+        <span className="relative bg-white px-2">Bạn mới biết đến {shop}?</span>
       </div>
       <a href="/register.html" className="az-btn az-btn-secondary w-full rounded-lg">
-        Create your {shop} account
+        Tạo tài khoản {shop}
       </a>
     </AuthFrame>
   );
